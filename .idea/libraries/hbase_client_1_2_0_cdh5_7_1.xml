@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="hbase-client-1.2.0-cdh5.7.1">
+    <CLASSES>
+      <root url="jar://F:/Library/lib/hbase-client-1.2.0-cdh5.7.1.jar!/" />
+      <root url="jar://F:/Library/lib/hbase-common-1.2.0-cdh5.7.1.jar!/" />
+      <root url="jar://F:/Library/lib/hbase-server-1.2.0-cdh5.7.1.jar!/" />
+      <root url="jar://F:/Library/lib/hbase-protocol-1.2.0-cdh5.7.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://F:/Library/lib/hbase-client-1.2.0-cdh5.7.1.jar!/" />
+    </SOURCES>
+  </library>
+</component>

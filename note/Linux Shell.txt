@@ -1,0 +1,104 @@
+1、定义变量：不需要加什么东西~但是需要注意的是！！变量名称和'='之间一定不可以有空格
+variableName="shell"
+
+2、使用变量：使用一个定义变量，只需要在变量名称前面加一个美元符号$
+echo $variableName / echo ${variableName} (推荐使用这种方式，因为这种方式可以帮助解释器识别变量边界) 例如 "I am good at $skillscript" "I am good at ${skill}script"
+
+3、已定义的变量可以重新定义
+variableName="java"
+
+4、只读变量，使用关键字readonly，只读变量不可以被更改
+readonly variableName 
+variableName="scala" # 执行脚本后会报错提示：/bin/sh: NAME: This variable is read only.
+
+5、删除变量，使用关键字unset
+unset variableName # 变量被删除后就不能再被使用，注意unset不能删除只读变量
+
+6、变量类型
+	运行shell的时候会有3种变量类型
+	1)局部变量--定义在脚本或者命令中，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量
+	2)环境变量--所有的程序，包括在其他shell启动的程序都可以访问环境变量
+	3)shell变量--shell变量是shell程序设置的特殊变量，shell变量中有一部分是环境变量，有一部分是局部变量？
+		变量名只能包含字母数字和下划线不能包含其他的特殊字符，因为包含某些特殊字符的变量具有特定的意义，有特殊意义的变量就叫做特殊变量
+		例如 echo $$   ### '$'就代表当前shell的进程id，即pid
+		特殊变量的列表  
+				${0} ### 当前脚本的文件名
+				${n} ### 传递给脚本或函数的参数，n是一个数字，表示第几个数字，例如第一个参数${1}，第二个参数${2}
+				${#} ### 传递给脚本或函数的参数个数
+				${*} ### 传递给脚本或函数的所有参数
+				${@} ### 传递给脚本或函数的所有参数,不被双引号(" ")包含时，都以"$1" "$2" … "$n" 的形式输出所有参数。
+					但是当它们被双引号(" ")包含时，"$*" 会将所有的参数作为一个整体，以"$1 $2 … $n"的形式输出所有参数；
+					"$@" 会将各个参数分开，以"$1" "$2" … "$n" 的形式输出所有参数。例如，下面两段代码：
+					
+																					echo "print each param from \"\$*\""			echo "print each param from \"\$@\""
+																					for var in "$*"														for var in "$@"
+																					do																				do
+   																					echo "$var"																echo "$var"
+																					done																			done
+				
+				执行 ./test.sh "a" "b" "c" "d"后：print each param from "$*"								print each param from "$@"										
+																				 	a b c d																		a
+																				 																						b
+																				 																						c
+																				 																						d
+				${?} ### 上个命令的退出状态，或函数的返回值.
+					所谓退出状态，就是上一个执行命令结束后会有一个执行后的返回结果，退出状态是一个数字，执行成功会返回0，执行失败会返回1，也有
+					一些命令会返回其他的数来表示不同类型的错误。
+					${?}也可以表示函数的返回值
+				${$} ### 当前shell的进程号，就是这些脚本所在进程的进程ID（pid）
+
+7、shell替换：Shell变量替换，命令替换，转义字符
+	如果表达式中包含特殊字符，shell将会进行替换，例如在双引号中使用变量、转移字符就是替换
+	a=10
+	echo -e "Value of a is $a \n" # -e表示对转移字符进行替换，否则将会原样输出
+	输出：Value of a is 10        # 不加-e原样输出 Value of a is 10 \n，默认是不转义的，也可以使用-E禁止转义
+	1)命令替换：反引号，在esc下面的键。例如 echo `date` 输出 Tue Jan 17 09:27:14 CST 2017 也可以将命令执行结果保存在变量中 DATE=`date` echo $DATE
+	2)变量替换：变量替换可以根据变量是否定义是否为空等来改变变量的值
+		${var} 变量本来的值
+		${var:-word} 如果变量为空，或者已经被删除(unset)，返回word，但是不改变var的值
+		${var:=word} 如果变量为空，或者已经被删除(unset)，返回word，并且设置var的值为word
+		${var:?message} 如果变量为空，或者已经被删除(unset)，将消息message送到标准输出，可以检测var是否被正确赋值，如果在shell脚本中，脚本将会停止运行
+		${var:+word} 如果var被定义返回word，不会改变var的值
+	
+8、shell运算符
+	1)算术运算符
+	原生bash不支持简单的算术运算，但是可以通过其他的命令来实现，例如expr、awk，其中expr最常用
+	两数相加 val=`expr 2 + 2`  # 注意数字和'+'中间必须有空格，否则会输出 '2+2'，而不是4
+  echo `expr 2 \* 2` # '*'号前面必须加反斜杠'\'才能实现乘法运算，其他运算不需要
+  ==比较两个数是否相等; !=比较两个数是否不相等; =赋值
+  2)关系运算符
+  关系运算符只支持数字，不支持字符串，除非字符串的值是数字
+  [$a -eq $b]   ###  a是否等于b 等于返回 true                    equals 缩写
+  [$a -ne $b]   ###  a是否不等于b 不等于返回 true								 not equals 缩写
+  [$a -gt $b]   ###  a是否大于b 大于返回 true										 greater than 缩写
+  [$a -ge $b]   ###  a是否大于等于b 大于等于返回 true						 greater equals 缩写
+  [$a -lt $b]   ###  a是否小于b 小于返回 true										 less than 缩写
+  [$a -le $b]   ###  a是否小于等于b 小于等于返回 true						 less equals 缩写
+  3)boolean运算符
+  !非运算; -o (or) 或运算; -a (and) 与运算
+  4)字符串运算符
+  [$a = $b]       ###  '='用于比较两个字符串是否相等，相等返回true
+  [$a != $b]      ###  '!='用于比较两个字符串是否不相等，不相等返回true
+  [-z $a]         ###  -z 检测字符串长度是否为0，为0返回true
+  [-n $a]					###  -n 检测字符串长度是否不为0，不为0返回true
+  [$a]					  ###  检测字符串是否不为空，不为空返回true
+  5)文件测试运算符列表
+  -b file	检测文件是否是块设备文件，如果是，则返回 true。	[ -b $file ] 返回 false。
+	-c file	检测文件是否是字符设备文件，如果是，则返回 true。	[ -b $file ] 返回 false。
+	-d file	检测文件是否是目录，如果是，则返回 true。	[ -d $file ] 返回 false。
+	-f file	检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。	[ -f $file ] 返回 true。
+	-g file	检测文件是否设置了 SGID 位，如果是，则返回 true。	[ -g $file ] 返回 false。
+	-k file	检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。	[ -k $file ] 返回 false。
+	-p file	检测文件是否是具名管道，如果是，则返回 true。	[ -p $file ] 返回 false。
+	-u file	检测文件是否设置了 SUID 位，如果是，则返回 true。	[ -u $file ] 返回 false。
+	-r file	检测文件是否可读，如果是，则返回 true。	[ -r $file ] 返回 true。
+	-w file	检测文件是否可写，如果是，则返回 true。	[ -w $file ] 返回 true。
+	-x file	检测文件是否可执行，如果是，则返回 true。	[ -x $file ] 返回 true。
+	-s file	检测文件是否为空（文件大小是否大于0），不为空返回 true。	[ -s $file ] 返回 true。
+	-e file	检测文件（包括目录）是否存在，如果是，则返回 true。	[ -e $file ] 返回 true。
+
+9、shell注释
+	shell注释有#，只可以注释一行，但是当遇到需要临时注释掉大段代码，每次在行首添加#太麻烦的时候，可以用一对{}将代码括起来，定义成一个函数
+	但是没有地方调用这段函数，就不会执行这段代码，起到了注释的作用
+
+10、
