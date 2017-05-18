@@ -1,69 +1,74 @@
-# Æ´Ğ´¼ì²é £ºÌí¼Ó Accept Words »òÕß Dictionaries
+ï»¿# æ–°çš„æ¿€æ´»æ–¹æ³•
+http://quanzhan.applemei.com/webStack/T1RnMw==
+
+# idea æˆæƒæœåŠ¡å™¨ http://elporfirio.com:1017/
+	 
+# æ‹¼å†™æ£€æŸ¥ ï¼šæ·»åŠ  Accept Words æˆ–è€… Dictionaries
 	
-	Î»ÖÃ £ºEditor -> Spelling
+	ä½ç½® ï¼šEditor -> Spelling
 	
-# Æ´Ğ´¼ì²é £ºÈ¥³ıÆ´Ğ´¼ì²é
+# æ‹¼å†™æ£€æŸ¥ ï¼šå»é™¤æ‹¼å†™æ£€æŸ¥
 	
-	Î»ÖÃ £ºEditor -> Inspections -> Spelling -> Typo È¡Ïû¹´Ñ¡
+	ä½ç½® ï¼šEditor -> Inspections -> Spelling -> Typo å–æ¶ˆå‹¾é€‰
 	
-	×¢ £ºInspections(¼ì²é£»ÊÓ²ì) ÖĞ°üº¬IDEA×ÔÉíÒÔ¼°IDEA¼¯³ÉµÄËùÓĞ¿ò¼Ü¹¦ÄÜµÄËùÓĞ¼ì²é£¬ÀıÈçIDEA×ÔÉíµÄÖØ¸´´úÂë¼ì²é (Duplicated Code) ÔÚ General ÖĞ
+	æ³¨ ï¼šInspections(æ£€æŸ¥ï¼›è§†å¯Ÿ) ä¸­åŒ…å«IDEAè‡ªèº«ä»¥åŠIDEAé›†æˆçš„æ‰€æœ‰æ¡†æ¶åŠŸèƒ½çš„æ‰€æœ‰æ£€æŸ¥ï¼Œä¾‹å¦‚IDEAè‡ªèº«çš„é‡å¤ä»£ç æ£€æŸ¥ (Duplicated Code) åœ¨ General ä¸­
 
-# ×Ô¶¯ĞŞÕı¡¢µ¼°ü¡¢ĞŞ¸Ä½¨Òé : Alt + Enter 
+# è‡ªåŠ¨ä¿®æ­£ã€å¯¼åŒ…ã€ä¿®æ”¹å»ºè®® : Alt + Enter 
 	
-	Î»ÖÃ£ºKeymap -> Other -> Show Intention Actions	
+	ä½ç½®ï¼šKeymap -> Other -> Show Intention Actions	
 	
-	×¢£º¿ì½İ¼üËùÄÜ×öµÄËùÓĞ²Ù×÷µÄÆôÓÃÓë¹Ø±Õ¶¼ÔÚ Editors -> Intentions ÖĞ
+	æ³¨ï¼šå¿«æ·é”®æ‰€èƒ½åšçš„æ‰€æœ‰æ“ä½œçš„å¯ç”¨ä¸å…³é—­éƒ½åœ¨ Editors -> Intentions ä¸­
 
-# ´úÂë×Ô¶¯²¹È«(Completion Basic) £ºCtrl + Space £»¸Ä¼ü Alt + /  
+# ä»£ç è‡ªåŠ¨è¡¥å…¨(Completion Basic) ï¼šCtrl + Space ï¼›æ”¹é”® Alt + /  
 
-	Î»ÖÃ£ºKeymap -> Main menu -> Code -> Completion -> Basic
+	ä½ç½®ï¼šKeymap -> Main menu -> Code -> Completion -> Basic
 	
-# ´úÂë¸ñÊ½»¯ £ºCtrl + Alt + L
+# ä»£ç æ ¼å¼åŒ– ï¼šCtrl + Alt + L
 	
-# ´úÂë×Ô¶¯²¹È«(Completion SmartType) £º Ctrl + Shift + Space
+# ä»£ç è‡ªåŠ¨è¡¥å…¨(Completion SmartType) ï¼š Ctrl + Shift + Space
 
-# ´úÂëÉú³É(Generate Getter / Setter) £ºAlt + Insert
+# ä»£ç ç”Ÿæˆ(Generate Getter / Setter) ï¼šAlt + Insert
 	
-# ÔÚ´úÂëÖĞÏë¿´Ò»¸ö·½·¨µÄÒıÓÃÊı,Ñ¡ÖĞ·½·¨Ãû°´ £ºCtrl + Alt + H£¬ÓÒÉÏ½Ç»áÏÔÊ¾ÒıÓÃÊ÷
+# åœ¨ä»£ç ä¸­æƒ³çœ‹ä¸€ä¸ªæ–¹æ³•çš„å¼•ç”¨æ•°,é€‰ä¸­æ–¹æ³•åæŒ‰ ï¼šCtrl + Alt + Hï¼Œå³ä¸Šè§’ä¼šæ˜¾ç¤ºå¼•ç”¨æ ‘
 
-# ¿´Ò»¸öÀàµÄÒıÓÃÊ÷,ÔòÔÚÏîÄ¿ÎÄ¼şÊ÷ÖÖÑ¡ÖĞÀàÃûÈ»ºó°´ £ºAlt + F7£»»òÕßÓÒ¼ü Find Usages
+# çœ‹ä¸€ä¸ªç±»çš„å¼•ç”¨æ ‘,åˆ™åœ¨é¡¹ç›®æ–‡ä»¶æ ‘ç§é€‰ä¸­ç±»åç„¶åæŒ‰ ï¼šAlt + F7ï¼›æˆ–è€…å³é”® Find Usages
 
-# ²é¿´ÀàµÄ¼Ì³Ğ¹ØÏµ,ÔòÔÚÏîÄ¿ÎÄ¼şÊ÷ÖÖÑ¡ÖĞÀàÃû,»òÕßÖ±½ÓÔÚÀàÖĞ,°´ Ctrl + H
+# æŸ¥çœ‹ç±»çš„ç»§æ‰¿å…³ç³»,åˆ™åœ¨é¡¹ç›®æ–‡ä»¶æ ‘ç§é€‰ä¸­ç±»å,æˆ–è€…ç›´æ¥åœ¨ç±»ä¸­,æŒ‰ Ctrl + H
 
-# È¥µ±Ç°ÀàµÄ¸¸Àà»ò¸¸½Ó¿Ú £ºCtrl + U
+# å»å½“å‰ç±»çš„çˆ¶ç±»æˆ–çˆ¶æ¥å£ ï¼šCtrl + U
 
-# ÖØĞ´·½·¨ £ºCtrl + O
+# é‡å†™æ–¹æ³• ï¼šCtrl + O
 
-# ÊµÏÖ½Ó¿Ú·½·¨ £ºCtrl + I
+# å®ç°æ¥å£æ–¹æ³• ï¼šCtrl + I
 
-# ´óĞ¡Ğ´ÇĞ»» £ºCtrl + Shift + U
+# å¤§å°å†™åˆ‡æ¢ ï¼šCtrl + Shift + U
 
-# ÖØÃüÃû £ºShift + F6
+# é‡å‘½å ï¼šShift + F6
 
-# È«¾Ö²éÕÒ(Serach Everywhere) £ºShift + Shift
+# å…¨å±€æŸ¥æ‰¾(Serach Everywhere) ï¼šShift + Shift
 
-# È«¾ÖÎÄ±¾¼ìË÷/Ìæ»» £ºCtrl + Shift + F ¶ÔÓ¦ Eclipse ÖĞµÄ Ctrl + H
+# å…¨å±€æ–‡æœ¬æ£€ç´¢/æ›¿æ¢ ï¼šCtrl + Shift + F å¯¹åº” Eclipse ä¸­çš„ Ctrl + H
 
-# µ±Ç°ÎÄ¼şÎÄ±¾Æ¥Åä £ºCtrl + F
+# å½“å‰æ–‡ä»¶æ–‡æœ¬åŒ¹é… ï¼šCtrl + F
 
-# ´ò¿ª×î½ü±à¼­¹ıµÄÎÄ¼şÁĞ±í £ºCtrl + E
+# æ‰“å¼€æœ€è¿‘ç¼–è¾‘è¿‡çš„æ–‡ä»¶åˆ—è¡¨ ï¼šCtrl + E
 
-# ·µ»ØÉÏ´Î±à¼­µÄµØ·½ £ºCtrl + Alt + ¡û / ¡ú Î»ÖÃ£ºKeymap -> Main menu -> Navigate -> Back/Forward
+# è¿”å›ä¸Šæ¬¡ç¼–è¾‘çš„åœ°æ–¹ ï¼šCtrl + Alt + â† / â†’ ä½ç½®ï¼šKeymap -> Main menu -> Navigate -> Back/Forward
 
-# ÉÏ / ÏÂÒ»¸ö Idea ÏîÄ¿´°¿Ú £ºAlt + Shift + [ / ]
+# ä¸Š / ä¸‹ä¸€ä¸ª Idea é¡¹ç›®çª—å£ ï¼šAlt + Shift + [ / ]
 
-# Previous/Next Occurrence £ºCtrl + Alt + ¡ü / ¡ı
+# Previous/Next Occurrence ï¼šCtrl + Alt + â†‘ / â†“
 
-# ×Ô¶¯¶¨Î»µ½´íÎóµÄµØ·½ £ºF2
+# è‡ªåŠ¨å®šä½åˆ°é”™è¯¯çš„åœ°æ–¹ ï¼šF2
 
-# ÇĞÀ´ÇĞÈ¥ £ºCtrl+Tab
+# åˆ‡æ¥åˆ‡å» ï¼šCtrl+Tab
 
-# Ñ¡ÄãËùÏë £ºCtrl+W
+# é€‰ä½ æ‰€æƒ³ ï¼šCtrl+W
 
-# ´úÂëÉú³É £ºTemplate/Postfix +Tab
+# ä»£ç ç”Ÿæˆ ï¼šTemplate/Postfix +Tab
 
-# ·¢ºÅÊ©Áî £ºCtrl+Shift+A
+# å‘å·æ–½ä»¤ ï¼šCtrl+Shift+A
 
-# ×Ô¶¯Íê³É £ºCtrl+Shift+Enter
+# è‡ªåŠ¨å®Œæˆ ï¼šCtrl+Shift+Enter
 
-# ÖØ¹¹Ò»ÇĞ £ºCtrl+Shift+Alt+T
+# é‡æ„ä¸€åˆ‡ ï¼šCtrl+Shift+Alt+T

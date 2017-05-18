@@ -1,128 +1,128 @@
-hbaseÄ¿Â¼Êä³öÈÕÖ¾ÎÄ¼ş£º
+ï»¿hbaseç›®å½•è¾“å‡ºæ—¥å¿—æ–‡ä»¶ï¼š
 $HBASE_HOME/logs/
 
-Äã¿ÉÒÔÔÚä¯ÀÀÆ÷ÖĞÊäÈëÏÂÃæURL²âÊÔÊÇ·ñ°²×°ÕıÈ·£º
+ä½ å¯ä»¥åœ¨æµè§ˆå™¨ä¸­è¾“å…¥ä¸‹é¢URLæµ‹è¯•æ˜¯å¦å®‰è£…æ­£ç¡®ï¼š
 http://localhost:60010
 
-================	½øÈëhbase shell console	================
+================	è¿›å…¥hbase shell console	================
 
 	$HBASE_HOME/bin/hbase shell
-	Èç¹ûÓĞkerberosÈÏÖ¤£¬ĞèÒªÊÂÏÈÊ¹ÓÃÏàÓ¦µÄkeytab½øĞĞÒ»ÏÂÈÏÖ¤£¨Ê¹ÓÃkinitÃüÁî£©£¬ÈÏÖ¤³É¹¦Ö®ºóÔÙÊ¹ÓÃhbase shell½øÈë¿ÉÒÔÊ¹ÓÃwhoamiÃüÁî¿É²é¿´µ±Ç°ÓÃ»§
+	å¦‚æœæœ‰kerberosè®¤è¯ï¼Œéœ€è¦äº‹å…ˆä½¿ç”¨ç›¸åº”çš„keytabè¿›è¡Œä¸€ä¸‹è®¤è¯ï¼ˆä½¿ç”¨kinitå‘½ä»¤ï¼‰ï¼Œè®¤è¯æˆåŠŸä¹‹åå†ä½¿ç”¨hbase shellè¿›å…¥å¯ä»¥ä½¿ç”¨whoamiå‘½ä»¤å¯æŸ¥çœ‹å½“å‰ç”¨æˆ·
 	hbase(main)> whoami
 
-================	±íµÄ¹ÜÀí	================
+================	è¡¨çš„ç®¡ç†	================
 
-	1£©²é¿´ÓĞÄÄĞ©±í
+	1ï¼‰æŸ¥çœ‹æœ‰å“ªäº›è¡¨
 	hbase(main)> list
 
-	2£©´´½¨±í
-	# Óï·¨£ºcreate <table>, {NAME => <family>, VERSIONS => <VERSIONS>}
-	# ÀıÈç£º´´½¨±ít1£¬ÓĞÁ½¸öfamily name£ºf1£¬f2£¬ÇÒ°æ±¾Êı¾ùÎª2
+	2ï¼‰åˆ›å»ºè¡¨
+	# è¯­æ³•ï¼šcreate <table>, {NAME => <family>, VERSIONS => <VERSIONS>}
+	# ä¾‹å¦‚ï¼šåˆ›å»ºè¡¨t1ï¼Œæœ‰ä¸¤ä¸ªfamily nameï¼šf1ï¼Œf2ï¼Œä¸”ç‰ˆæœ¬æ•°å‡ä¸º2
 	hbase(main)> create 't1',{NAME => 'f1', VERSIONS => 2},{NAME => 'f2', VERSIONS => 2}
 
-	3£©É¾³ı±í
-	·ÖÁ½²½£ºÊ×ÏÈdisable£¬È»ºódrop
-	ÀıÈç£ºÉ¾³ı±ít1
+	3ï¼‰åˆ é™¤è¡¨
+	åˆ†ä¸¤æ­¥ï¼šé¦–å…ˆdisableï¼Œç„¶ådrop
+	ä¾‹å¦‚ï¼šåˆ é™¤è¡¨t1
 	hbase(main)> disable 't1'
 	hbase(main)> drop 't1'
 
-	4£©²é¿´±íµÄ½á¹¹
-	# Óï·¨£ºdescribe <table>
-	# ÀıÈç£º²é¿´±ít1µÄ½á¹¹
+	4ï¼‰æŸ¥çœ‹è¡¨çš„ç»“æ„
+	# è¯­æ³•ï¼šdescribe <table>
+	# ä¾‹å¦‚ï¼šæŸ¥çœ‹è¡¨t1çš„ç»“æ„
 	hbase(main)> describe 't1'
 
-	5£©ĞŞ¸Ä±í½á¹¹
-	ĞŞ¸Ä±í½á¹¹±ØĞëÏÈdisable
-	# Óï·¨£ºalter 't1', {NAME => 'f1'}, {NAME => 'f2', METHOD => 'delete'}
-	# ÀıÈç£ºĞŞ¸Ä±ítest1µÄcfµÄTTLÎª180Ìì
+	5ï¼‰ä¿®æ”¹è¡¨ç»“æ„
+	ä¿®æ”¹è¡¨ç»“æ„å¿…é¡»å…ˆdisable
+	# è¯­æ³•ï¼šalter 't1', {NAME => 'f1'}, {NAME => 'f2', METHOD => 'delete'}
+	# ä¾‹å¦‚ï¼šä¿®æ”¹è¡¨test1çš„cfçš„TTLä¸º180å¤©
 	hbase(main)> disable 'test1'
 	hbase(main)> alter 'test1',{NAME=>'body',TTL=>'15552000'},{NAME=>'meta', TTL=>'15552000'}
 	hbase(main)> enable 'test1'
 
-================	È¨ÏŞ¹ÜÀí	================
+================	æƒé™ç®¡ç†	================
 	
-	1£©·ÖÅäÈ¨ÏŞ
-	# Óï·¨ : grant <user> <permissions> <table> <column family> <column qualifier> ²ÎÊıºóÃæÓÃ¶ººÅ·Ö¸ô
-	# È¨ÏŞÓÃÎå¸ö×ÖÄ¸±íÊ¾£º "RWXCA".
+	1ï¼‰åˆ†é…æƒé™
+	# è¯­æ³• : grant <user> <permissions> <table> <column family> <column qualifier> å‚æ•°åé¢ç”¨é€—å·åˆ†éš”
+	# æƒé™ç”¨äº”ä¸ªå­—æ¯è¡¨ç¤ºï¼š "RWXCA".
 	# READ('R'), WRITE('W'), EXEC('X'), CREATE('C'), ADMIN('A')
-	# ÀıÈç£¬¸øÓÃ»§¡®test'·ÖÅä¶Ô±ít1ÓĞ¶ÁĞ´µÄÈ¨ÏŞ£¬
+	# ä¾‹å¦‚ï¼Œç»™ç”¨æˆ·â€˜test'åˆ†é…å¯¹è¡¨t1æœ‰è¯»å†™çš„æƒé™ï¼Œ
 	hbase(main)> grant 'test','RW','t1'
 	
-	2£©²é¿´È¨ÏŞ
-	# Óï·¨£ºuser_permission <table>
-	# ÀıÈç£¬²é¿´±ít1µÄÈ¨ÏŞÁĞ±í
+	2ï¼‰æŸ¥çœ‹æƒé™
+	# è¯­æ³•ï¼šuser_permission <table>
+	# ä¾‹å¦‚ï¼ŒæŸ¥çœ‹è¡¨t1çš„æƒé™åˆ—è¡¨
 	hbase(main)> user_permission 't1'
 	
-	3£©ÊÕ»ØÈ¨ÏŞ
-	# Óë·ÖÅäÈ¨ÏŞÀàËÆ£¬Óï·¨£ºrevoke <user> <table> <column family> <column qualifier>
-	# ÀıÈç£¬ÊÕ»ØtestÓÃ»§ÔÚ±ít1ÉÏµÄÈ¨ÏŞ
+	3ï¼‰æ”¶å›æƒé™
+	# ä¸åˆ†é…æƒé™ç±»ä¼¼ï¼Œè¯­æ³•ï¼šrevoke <user> <table> <column family> <column qualifier>
+	# ä¾‹å¦‚ï¼Œæ”¶å›testç”¨æˆ·åœ¨è¡¨t1ä¸Šçš„æƒé™
 	hbase(main)> revoke 'test','t1'
 
-================	±íÊı¾İµÄÔöÉ¾¸Ä²é	================
+================	è¡¨æ•°æ®çš„å¢åˆ æ”¹æŸ¥	================
 	
-	1£©Ìí¼ÓÊı¾İ
-	# Óï·¨£ºput <table>,<rowkey>,<family:column>,<value>,<timestamp>
-	# ÀıÈç£º¸ø±ít1µÄÌí¼ÓÒ»ĞĞ¼ÇÂ¼£ºrowkeyÊÇrowkey001£¬family name£ºf1£¬column name£ºcol1£¬value£ºvalue01£¬timestamp£ºÏµÍ³Ä¬ÈÏ
+	1ï¼‰æ·»åŠ æ•°æ®
+	# è¯­æ³•ï¼šput <table>,<rowkey>,<family:column>,<value>,<timestamp>
+	# ä¾‹å¦‚ï¼šç»™è¡¨t1çš„æ·»åŠ ä¸€è¡Œè®°å½•ï¼šrowkeyæ˜¯rowkey001ï¼Œfamily nameï¼šf1ï¼Œcolumn nameï¼šcol1ï¼Œvalueï¼švalue01ï¼Œtimestampï¼šç³»ç»Ÿé»˜è®¤
 	hbase(main)> put 't1','rowkey001','f1:col1','value01'
-	ÓÃ·¨±È½Ïµ¥Ò»¡£
+	ç”¨æ³•æ¯”è¾ƒå•ä¸€ã€‚
 	
-	2£©²éÑ¯Êı¾İ
-		a£©²éÑ¯Ä³ĞĞ¼ÇÂ¼
-		# Óï·¨£ºget <table>,<rowkey>,[<family:column>,....]
-		# ÀıÈç£º²éÑ¯±ít1£¬rowkey001ÖĞµÄf1ÏÂµÄcol1µÄÖµ
+	2ï¼‰æŸ¥è¯¢æ•°æ®
+		aï¼‰æŸ¥è¯¢æŸè¡Œè®°å½•
+		# è¯­æ³•ï¼šget <table>,<rowkey>,[<family:column>,....]
+		# ä¾‹å¦‚ï¼šæŸ¥è¯¢è¡¨t1ï¼Œrowkey001ä¸­çš„f1ä¸‹çš„col1çš„å€¼
 		hbase(main)> get 't1','rowkey001', 'f1:col1'
-		# »òÕß£º
+		# æˆ–è€…ï¼š
 		hbase(main)> get 't1','rowkey001', {COLUMN=>'f1:col1'}
-		# ²éÑ¯±ít1£¬rowke002ÖĞµÄf1ÏÂµÄËùÓĞÁĞÖµ
+		# æŸ¥è¯¢è¡¨t1ï¼Œrowke002ä¸­çš„f1ä¸‹çš„æ‰€æœ‰åˆ—å€¼
 		hbase(main)> get 't1','rowkey001'
 		
-		b£©É¨Ãè±í
-		# Óï·¨£ºscan <table>, {COLUMNS => [ <family:column>,.... ], LIMIT => num}
-		# ÁíÍâ£¬»¹¿ÉÒÔÌí¼ÓSTARTROW¡¢TIMERANGEºÍFITLERµÈ¸ß¼¶¹¦ÄÜ
-		# ÀıÈç£ºÉ¨Ãè±ít1µÄÇ°5ÌõÊı¾İ
+		bï¼‰æ‰«æè¡¨
+		# è¯­æ³•ï¼šscan <table>, {COLUMNS => [ <family:column>,.... ], LIMIT => num}
+		# å¦å¤–ï¼Œè¿˜å¯ä»¥æ·»åŠ STARTROWã€TIMERANGEå’ŒFITLERç­‰é«˜çº§åŠŸèƒ½
+		# ä¾‹å¦‚ï¼šæ‰«æè¡¨t1çš„å‰5æ¡æ•°æ®
 		hbase(main)> scan 't1',{LIMIT=>5}
 		
-		c£©²éÑ¯±íÖĞµÄÊı¾İĞĞÊı	
-		# Óï·¨£ºcount <table>, {INTERVAL => intervalNum, CACHE => cacheNum}
-		# INTERVALÉèÖÃ¶àÉÙĞĞÏÔÊ¾Ò»´Î¼°¶ÔÓ¦µÄrowkey£¬Ä¬ÈÏ1000£»CACHEÃ¿´ÎÈ¥È¡µÄ»º´æÇø´óĞ¡£¬Ä¬ÈÏÊÇ10£¬µ÷Õû¸Ã²ÎÊı¿ÉÌá¸ß²éÑ¯ËÙ¶È
-		# ÀıÈç£¬²éÑ¯±ít1ÖĞµÄĞĞÊı£¬Ã¿100ÌõÏÔÊ¾Ò»´Î£¬»º´æÇøÎª500
+		cï¼‰æŸ¥è¯¢è¡¨ä¸­çš„æ•°æ®è¡Œæ•°	
+		# è¯­æ³•ï¼šcount <table>, {INTERVAL => intervalNum, CACHE => cacheNum}
+		# INTERVALè®¾ç½®å¤šå°‘è¡Œæ˜¾ç¤ºä¸€æ¬¡åŠå¯¹åº”çš„rowkeyï¼Œé»˜è®¤1000ï¼›CACHEæ¯æ¬¡å»å–çš„ç¼“å­˜åŒºå¤§å°ï¼Œé»˜è®¤æ˜¯10ï¼Œè°ƒæ•´è¯¥å‚æ•°å¯æé«˜æŸ¥è¯¢é€Ÿåº¦
+		# ä¾‹å¦‚ï¼ŒæŸ¥è¯¢è¡¨t1ä¸­çš„è¡Œæ•°ï¼Œæ¯100æ¡æ˜¾ç¤ºä¸€æ¬¡ï¼Œç¼“å­˜åŒºä¸º500
 		hbase(main)> count 't1', {INTERVAL => 100, CACHE => 500}
 	
-	3£©É¾³ıÊı¾İ
-		a )É¾³ıĞĞÖĞµÄÄ³¸öÁĞÖµ
-		# Óï·¨£ºdelete <table>, <rowkey>,  <family:column> , <timestamp>,±ØĞëÖ¸¶¨ÁĞÃû
-		# ÀıÈç£ºÉ¾³ı±ít1£¬rowkey001ÖĞµÄf1:col1µÄÊı¾İ
+	3ï¼‰åˆ é™¤æ•°æ®
+		a )åˆ é™¤è¡Œä¸­çš„æŸä¸ªåˆ—å€¼
+		# è¯­æ³•ï¼šdelete <table>, <rowkey>,  <family:column> , <timestamp>,å¿…é¡»æŒ‡å®šåˆ—å
+		# ä¾‹å¦‚ï¼šåˆ é™¤è¡¨t1ï¼Œrowkey001ä¸­çš„f1:col1çš„æ•°æ®
 		hbase(main)> delete 't1','rowkey001','f1:col1'
-		×¢£º½«É¾³ı¸ÄĞĞf1:col1ÁĞËùÓĞ°æ±¾µÄÊı¾İ
+		æ³¨ï¼šå°†åˆ é™¤æ”¹è¡Œf1:col1åˆ—æ‰€æœ‰ç‰ˆæœ¬çš„æ•°æ®
 		
-		b )É¾³ıĞĞ
-		# Óï·¨£ºdeleteall <table>, <rowkey>,  <family:column> , <timestamp>£¬¿ÉÒÔ²»Ö¸¶¨ÁĞÃû£¬É¾³ıÕûĞĞÊı¾İ
-		# ÀıÈç£ºÉ¾³ı±ít1£¬rowk001µÄÊı¾İ
+		b )åˆ é™¤è¡Œ
+		# è¯­æ³•ï¼šdeleteall <table>, <rowkey>,  <family:column> , <timestamp>ï¼Œå¯ä»¥ä¸æŒ‡å®šåˆ—åï¼Œåˆ é™¤æ•´è¡Œæ•°æ®
+		# ä¾‹å¦‚ï¼šåˆ é™¤è¡¨t1ï¼Œrowk001çš„æ•°æ®
 		hbase(main)> deleteall 't1','rowkey001'
 		
-		c£©É¾³ı±íÖĞµÄËùÓĞÊı¾İ
-		# Óï·¨£º truncate <table>
-		# Æä¾ßÌå¹ı³ÌÊÇ£ºdisable table -> drop table -> create table
-		# ÀıÈç£ºÉ¾³ı±ít1µÄËùÓĞÊı¾İ
+		cï¼‰åˆ é™¤è¡¨ä¸­çš„æ‰€æœ‰æ•°æ®
+		# è¯­æ³•ï¼š truncate <table>
+		# å…¶å…·ä½“è¿‡ç¨‹æ˜¯ï¼šdisable table -> drop table -> create table
+		# ä¾‹å¦‚ï¼šåˆ é™¤è¡¨t1çš„æ‰€æœ‰æ•°æ®
 		hbase(main)> truncate 't1'
 
-================	Region¹ÜÀí	================
+================	Regionç®¡ç†	================
 
-	1£©ÒÆ¶¯region
-	# Óï·¨£ºmove 'encodeRegionName', 'ServerName'
-	# encodeRegionNameÖ¸µÄregioNameºóÃæµÄ±àÂë£¬ServerNameÖ¸µÄÊÇmaster-statusµÄRegion ServersÁĞ±í
-	# Ê¾Àı
+	1ï¼‰ç§»åŠ¨region
+	# è¯­æ³•ï¼šmove 'encodeRegionName', 'ServerName'
+	# encodeRegionNameæŒ‡çš„regioNameåé¢çš„ç¼–ç ï¼ŒServerNameæŒ‡çš„æ˜¯master-statusçš„Region Serversåˆ—è¡¨
+	# ç¤ºä¾‹
 	hbase(main)>move '4343995a58be8e5bbc739af1e91cd72d', 'db-41.xxx.xxx.org,60020,1390274516739'
 	
-	2£©¿ªÆô/¹Ø±Õregion
-	# Óï·¨£ºbalance_switch true|false
+	2ï¼‰å¼€å¯/å…³é—­region
+	# è¯­æ³•ï¼šbalance_switch true|false
 	hbase(main)> balance_switch
 	
-	3£©ÊÖ¶¯split
-	# Óï·¨£ºsplit 'regionName', 'splitKey'
+	3ï¼‰æ‰‹åŠ¨split
+	# è¯­æ³•ï¼šsplit 'regionName', 'splitKey'
 	
-	4£©ÊÖ¶¯´¥·¢major compaction
-	#Óï·¨£º
+	4ï¼‰æ‰‹åŠ¨è§¦å‘major compaction
+	#è¯­æ³•ï¼š
 	#Compact all regions in a table:
 	#hbase> major_compact 't1'
 	#Compact an entire region:
@@ -132,21 +132,21 @@ http://localhost:60010
 	#Compact a single column family within a table:
 	#hbase> major_compact 't1', 'c1'
 	
-================	ÅäÖÃ¹ÜÀí¼°½ÚµãÖØÆô	================
+================	é…ç½®ç®¡ç†åŠèŠ‚ç‚¹é‡å¯	================
 
-	1£©ĞŞ¸ÄhdfsÅäÖÃ
-	hdfsÅäÖÃÎ»ÖÃ£º/etc/hadoop/conf
-	# Í¬²½hdfsÅäÖÃ
+	1ï¼‰ä¿®æ”¹hdfsé…ç½®
+	hdfsé…ç½®ä½ç½®ï¼š/etc/hadoop/conf
+	# åŒæ­¥hdfsé…ç½®
 	cat /home/hadoop/slaves|xargs -i -t scp /etc/hadoop/conf/hdfs-site.xml hadoop@{}:/etc/hadoop/conf/hdfs-site.xml
-	#¹Ø±Õ£º
+	#å…³é—­ï¼š
 	cat /home/hadoop/slaves|xargs -i -t ssh hadoop@{} "sudo /home/hadoop/cdh4/hadoop-2.0.0-cdh4.2.1/sbin/hadoop-daemon.sh --config /etc/hadoop/conf stop datanode"
-	#Æô¶¯£º
+	#å¯åŠ¨ï¼š
 	cat /home/hadoop/slaves|xargs -i -t ssh hadoop@{} "sudo /home/hadoop/cdh4/hadoop-2.0.0-cdh4.2.1/sbin/hadoop-daemon.sh --config /etc/hadoop/conf start datanode"
 	
-	2£©ĞŞ¸ÄhbaseÅäÖÃ
-	hbaseÅäÖÃÎ»ÖÃ£º
-	# Í¬²½hbaseÅäÖÃ
+	2ï¼‰ä¿®æ”¹hbaseé…ç½®
+	hbaseé…ç½®ä½ç½®ï¼š
+	# åŒæ­¥hbaseé…ç½®
 	cat /home/hadoop/hbase/conf/regionservers|xargs -i -t scp /home/hadoop/hbase/conf/hbase-site.xml hadoop@{}:/home/hadoop/hbase/conf/hbase-site.xml
-	# gracefulÖØÆô
+	# gracefulé‡å¯
 	cd ~/hbase
 	bin/graceful_stop.sh --restart --reload --debug inspurXXX.xxx.xxx.org

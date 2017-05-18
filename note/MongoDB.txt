@@ -1,271 +1,486 @@
-=================================== MongoDB ³£ÓÃShellÃüÁî ===================================
+ï»¿
 
-MongoDBÃ»ÓĞ´´½¨Êı¾İ¿âµÄÃüÁî£¬µ«ÓĞÀàËÆµÄÃüÁî¡£
-Èç£ºÈç¹ûÄãÏë´´½¨Ò»¸ö¡°myTest¡±µÄÊı¾İ¿â£¬ÏÈÔËĞĞuse myTestÃüÁî£¬Ö®ºó¾Í×öÒ»Ğ©²Ù×÷£¨Èç£ºdb.createCollection('user')£©,ÕâÑù¾Í¿ÉÒÔ´´½¨Ò»¸öÃû½Ğ¡°myTest¡±µÄÊı¾İ¿â¡£
+=================================== 	MongoDB æ•°æ®åº“/è¡¨å¤‡ä»½ 	  ===================================
 
-1¡¢½øÈëMongoDB shell£¬½øĞĞÊı¾İ¿âµÄ²Ù×÷ £ºmongo
-2¡¢ÊäÈëhelp¿ÉÒÔ¿´µ½»ù±¾²Ù×÷ÃüÁî £ºhelp	
-3¡¢²é¿´¾İ¿â²Ù×÷·½·¨µÄÃüÁî £º db.help()
-4¡¢²é¿´µ±Ç°ÒÑ¾­´æÔÚµÄÊı¾İ¿â £ºshow dbs
-5¡¢½øÈëÄ³¸öÊı¾İ¿â £ºuse dbname
-6¡¢²é¿´Êı¾İ¿âÖĞÒÑ¾­´æÔÚµÄ¼¯ºÏ(±í) : show collections || show tables  
-7¡¢²é¿´Êı¾İ¿âÖĞÄ³¸ö¼¯ºÏµÄËùÓĞÊı¾İ £ºdb.collectionName.find()
-8¡¢ÏÔÊ¾ÓÃ»§ £ºshow users
-9¡¢ÍË³öMongoDB Shell £ºexit
 
-db.collectionName.help() £ºÏÔÊ¾¼¯ºÏ²Ù×÷ÃüÁî£¬Í¬ÑùÓĞºÜ¶àµÄÃüÁî£¬collectionNameÖ¸µÄÊÇµ±Ç°Êı¾İ¿âÏÂ£¬Ò»¸ö½ĞcollectionNameµÄ¼¯ºÏ£¬²¢·ÇÕæÕıÒâÒåÉÏµÄÃüÁî 
-db.collectionName.find() £º¶ÔÓÚµ±Ç°Êı¾İ¿âÖĞµÄcollectionName¼¯ºÏ½øĞĞÊı¾İ²éÕÒ£¨ÓÉÓÚÃ»ÓĞÌõ¼ş£¬»áÁĞ³öËùÓĞÊı¾İ£© 
-db.collectionName.find( { a : 1 } ) £º¶ÔÓÚµ±Ç°Êı¾İ¿âÖĞµÄcollectionName¼¯ºÏ½øĞĞ²éÕÒ£¬Ìõ¼şÊÇÊı¾İÖĞÓĞÒ»¸öÊôĞÔ½Ğa£¬ÇÒaµÄÖµÎª1
+# æ³¨æ„ï¼ ä»¥ä¸‹çš„å‘½ä»¤ä¸æ˜¯åœ¨ Mongo Shell ä¸­æ‰§è¡Œçš„å‘½ä»¤ï¼Œè€Œæ˜¯åœ¨ Linux shell ä¸­æ‰§è¡Œçš„å‘½ä»¤
 
-=================================== ÓÃ»§Ïà¹Ø ===================================
+# æ•°æ®åº“å¤‡ä»½ mongodump
+	
+	# å¦‚æœæ²¡æœ‰ç”¨æˆ·è°ï¼Œå¯ä»¥å»æ‰-uå’Œ-pã€‚
+	
+	# å¦‚æœå¯¼å‡ºæœ¬æœºçš„æ•°æ®åº“ï¼Œå¯ä»¥å»æ‰-hã€‚
+	
+	# å¦‚æœæ˜¯é»˜è®¤ç«¯å£ï¼Œå¯ä»¥å»æ‰--portã€‚
+	
+	# å¦‚æœæƒ³å¯¼å‡ºæ‰€æœ‰æ•°æ®åº“ï¼Œå¯ä»¥å»æ‰-dã€‚
+	
+		mongodump -h IP --port ç«¯å£ -u ç”¨æˆ·å -p å¯†ç  -d æ•°æ®åº“ -o æ–‡ä»¶å­˜åœ¨è·¯å¾„ 
+	
+	# ä¾‹å¦‚å¯¼å‡ºæ‰€æœ‰æ•°æ®åº“ï¼š
+	
+		mongodump /usr/zhangqiang/mongodb/
+	
+# é€šè¿‡å¤‡ä»½è¿˜åŸæ•°æ®åº“	mongorestore
 
-1¡¢Ìí¼ÓÒ»¸öÓÃ»§
- db.addUser("name");
- db.addUser("userName", "pwd123", true); Ìí¼ÓÓÃ»§¡¢ÉèÖÃÃÜÂë¡¢ÊÇ·ñÖ»¶Á
+	# --dropçš„æ„æ€æ˜¯ï¼Œå…ˆåˆ é™¤æ‰€æœ‰çš„è®°å½•ï¼Œç„¶åæ¢å¤
 
-2¡¢Êı¾İ¿âÈÏÖ¤¡¢°²È«Ä£Ê½
- db.auth("userName", "123123");
+		mongorestore -h IP --port ç«¯å£ -u ç”¨æˆ·å -p å¯†ç  -d æ•°æ®åº“ --drop æ–‡ä»¶å­˜åœ¨è·¯å¾„
+	
+	# ä¾‹å¦‚æ¢å¤æ‰€æœ‰æ•°æ®åº“ï¼š
+	
+		mongorestore /usr/zhangqiang/mongodb/
+		
+	# æ¢å¤æŒ‡å®šçš„æ•°æ®åº“
+	
+		mongorestore -d test /usr/zhangqiang/mongodb/test/
+	
+# å¯¼å‡ºè¡¨/è¡¨ä¸­æŸäº›å­—æ®µ  mongoexport
 
-3¡¢ÏÔÊ¾µ±Ç°ËùÓĞÓÃ»§
- show users;
+	mongoexport -h IP --port ç«¯å£ -u ç”¨æˆ·å -p å¯†ç  -d æ•°æ®åº“ -c è¡¨å -f å­—æ®µ -q æ¡ä»¶å¯¼å‡º --csv -o æ–‡ä»¶å
+	
+	-f    # å¯¼å‡ºæŒ‡å®šå­—æ®µï¼Œä»¥é€—å·åˆ†å‰²ï¼Œ-f name,email,ageå¯¼å‡ºname,email,ageè¿™ä¸‰ä¸ªå­—æ®µ
+	
+	-q    # å¯ä»¥æ ¹æŸ¥è¯¢æ¡ä»¶å¯¼å‡ºï¼Œ-q '{ "uid" : "100" }' å¯¼å‡ºuidä¸º100çš„æ•°æ®
+	
+	--csv # è¡¨ç¤ºå¯¼å‡ºçš„æ–‡ä»¶æ ¼å¼ä¸ºcsvçš„ï¼Œè¿™ä¸ªæ¯”è¾ƒæœ‰ç”¨ï¼Œå› ä¸ºå¤§éƒ¨åˆ†çš„å…³ç³»å‹æ•°æ®åº“éƒ½æ˜¯æ”¯æŒcsvï¼Œåœ¨è¿™é‡Œæœ‰å…±åŒç‚¹
 
-4¡¢É¾³ıÓÃ»§
- db.removeUser("userName");
+	# ä¾‹å¦‚å¯¼å‡ºè¡¨ visit_data
+	
+		mongoexport  -d smarket -c visit_vector  -o /usr/zhangqiang/mongodb/smarket/visit_vector.dat
+		
+	# å¯¼å‡ºéƒ¨åˆ†å­—æ®µ _id,school,teacher
+	
+		mongoexport -d smarket -c visit_vector --csv -f _id,school,teacher -o /usr/zhangqiang/mongodb/smarket/visit_vector.csv
 
-=================================== ÆäËû ===================================
+# å¯¼å…¥è¡¨/è¡¨ä¸­æŸäº›å­—æ®µ  mongoimport
 
-1¡¢²éÑ¯Ö®Ç°µÄ´íÎóĞÅÏ¢
- db.getPrevError();
+	# è¿˜åŸæ•´è¡¨å¯¼å‡ºçš„écsvæ–‡ä»¶
+	
+		mongoimport -h IP --port ç«¯å£ -u ç”¨æˆ·å -p å¯†ç  -d æ•°æ®åº“ -c è¡¨å --upsert --drop æ–‡ä»¶å
+	
+		--upsert # æ’å…¥æˆ–è€…æ›´æ–°ç°æœ‰æ•°æ®
+		
+		# ä¾‹å¦‚ï¼š
+		
+			mongoimport -d smarket -c visit_vector visit_vector.dat
+	
+	# è¿˜åŸéƒ¨åˆ†å­—æ®µçš„å¯¼å‡ºæ–‡ä»¶
+	
+		mongoimport -h IP --port ç«¯å£ -u ç”¨æˆ·å -p å¯†ç  -d æ•°æ®åº“ -c è¡¨å --upsertFields å­—æ®µ --drop æ–‡ä»¶å  
 
-2¡¢Çå³ı´íÎó¼ÇÂ¼
- db.resetError();
+		--upsertFields # ä¸ --upsert ä¸€æ ·
+	
+	# è¿˜åŸå¯¼å‡ºçš„csvæ–‡ä»¶
+	
+		mongoimport -h IP --port ç«¯å£ -u ç”¨æˆ·å -p å¯†ç  -d æ•°æ®åº“ -c è¡¨å --type ç±»å‹ --headerline --upsert --drop æ–‡ä»¶å
+		
+		--headerline # csv æ–‡ä»¶ç¬¬ä¸€è¡Œä¸ºåˆ—å
+	
+	
 
-=================================== MongoDB»ù±¾ÃüÁî ===================================
+=================================== 	MongoDB æ•°æ®åº“/è¡¨èŠ‚ç‚¹ä¹‹é—´çš„æ•°æ®å¤åˆ¶ 	  ===================================
 
-1¡¢Help²é¿´ÃüÁîÌáÊ¾
-  db.help();
-  db.yourColl.help();
-  db.youColl.find().help();
+
+# MongoDBè‡ªå¸¦äº†cloneä¸€æ—JavaScriptå‡½æ•°æ¥è¿›è¡Œæ•°æ®çš„å¤åˆ¶,è¿™é‡Œæˆ‘ä»¬æ€»ç»“äº†MongoDBåœ¨ä¸åŒä¸»æœºé—´å¤åˆ¶æ•°æ®åº“å’Œé›†åˆçš„æ•™ç¨‹,åˆ—ä¸¾å‡ºäº†ä¸€äº›ä¸»ä»å¤åˆ¶æ“ä½œä¸­å¸¸ç”¨çš„é‡è¦å‡½æ•°:
+
+	# åœ¨ä¸åŒçš„mongodbå®ä¾‹é—´å¤åˆ¶æ•°æ®
+
+		db.cloneCollection(from, collection, query)
+
+		# å‚æ•°è¯´æ˜
+		
+			from:string  		# åŒ…å«éœ€è¦å¤åˆ¶çš„è¡¨çš„mongodbå®ä¾‹ä¸»æœºå
+	
+			collection:string   # æ•°æ®å®ä¾‹ä¸­éœ€è¦å¤åˆ¶çš„è¡¨åï¼Œè¯¥å‘½ä»¤åªå¯ä»¥å¤åˆ¶è¿œç¨‹mongodbå®ä¾‹ä¸Šç›¸åŒæ•°æ®åº“åç§°çš„è¡¨
+		
+			query:document 		# å¯é€‰çš„é€‰é¡¹ã€‚æ ‡å‡†çš„æŸ¥è¯¢è¯­å¥è¿‡æ»¤æ‰ä¸éœ€è¦çš„æ–‡æ¡£
+		
+		# ä¾‹å¦‚ï¼š
+		
+			db.cloneCollection("10.4.120.83", "visit_data", {"school" : "ç¬¬ä¸€å®éªŒå°å­¦"})
+	
+	# å¤åˆ¶è¿œç¨‹ä¸»æœºçš„æ•°æ®åº“åˆ°æœ¬åœ°ï¼Œè¯¥å‘½ä»¤å‡è®¾è¿œç¨‹mongodbå®ä¾‹ä¸­æ‹¥æœ‰ä¸æœ¬åœ°ç›¸åŒçš„æ•°æ®åº“åç§°ã€‚
+	
+		db.cloneDatabase(hostname)
+		
+		# å‚æ•°è¯´æ˜
+		
+			hostname:string  	# åŒ…å«éœ€è¦å¤åˆ¶çš„æ•°æ®åº“çš„mongodbå®ä¾‹ä¸»æœºå
+			
+		# ä¾‹å¦‚ï¼š
+		
+			use smarket
+			
+			db.dropDatabase();
+			
+			db.cloneDatabase("10.4.120.83");
+
+	# ä»è¿œç¨‹ä¸»æœºå¤åˆ¶æ•°æ®åº“åˆ°æœ¬åœ°ï¼Œæˆ–ä»æœ¬åœ°å¤åˆ¶æ•°æ®åº“åˆ°è¿œç¨‹ä¸»æœº
+	
+		db.copyDatabase(fromdb, todb, fromhost, username, password, mechanism)
+		
+		# å‚æ•°è¯´æ˜
+		
+			fromdb:string  		# æºæ•°æ®åº“åç§°
+			
+			todb:string  		# ç›®æ ‡æ•°æ®åº“åç§°
+			
+			fromhost:string  	# å¯é€‰é¡¹ï¼Œæºæ•°æ®åº“çš„ä¸»æœºåã€‚å¦‚æœæ˜¯åŒä¸€ä¸»æœºï¼Œå¿½ç•¥è¯¥é€‰é¡¹
+			
+			username:string  	# å¯é€‰é¡¹ï¼Œæºä¸»æœºåç”¨æˆ·å
+			
+			password:string  	# å¯é€‰é¡¹ï¼Œæºä¸»æœºåç”¨æˆ·åå¯¹åº”å¯†ç 
+
+			mechanism:string	# å¯é€‰é¡¹ï¼Œ3.0ç‰ˆæœ¬æ–°å‡ºçš„é€‰é¡¹ï¼Œåœ¨æºæ•°æ®åº“ä¸»æœºä¸ŠéªŒè¯ç”¨æˆ·åå’Œå¯†ç çš„æœºåˆ¶ã€‚MONGODB-CR æˆ–è€… SCRAM-SHA-1ï¼Œ
+			
+								# å¦‚æœ MongoDB çš„ç‰ˆæœ¬å·ä¸º3.0åŠä»¥ä¸Šï¼Œé»˜è®¤ä¸º SCRAM-SHA-1ï¼Œå¦åˆ™é»˜è®¤ä¸º MONGODB-CR
+			
+								# ä»è£…æœ‰3.0ç‰ˆæœ¬æˆ–ä»¥ä¸Šçš„æ•°æ®åº“å®ä¾‹å¤åˆ¶åˆ°è£…æœ‰2.6.xç‰ˆæœ¬æ•°æ®åº“çš„ä¸»æœºæ—¶æŒ‡å®šMONGODB-CRæ¥éªŒè¯ã€‚
+								
+								# ä¾‹å¦‚æ‹·è´ä¸€ä¸ªå¼ºåˆ¶è¿›è¡ŒéªŒè¯çš„mongodå®ä¾‹çš„æ•°æ®åº“
+
+
+
+	
+	
+
+=================================== MongoDB å¸¸ç”¨Shellå‘½ä»¤ ===================================
+
+
+# MongoDBæ²¡æœ‰åˆ›å»ºæ•°æ®åº“çš„å‘½ä»¤ï¼Œä½†æœ‰ç±»ä¼¼çš„å‘½ä»¤ã€‚
+
+# å¦‚ï¼šå¦‚æœä½ æƒ³åˆ›å»ºä¸€ä¸ªâ€œmyTestâ€çš„æ•°æ®åº“ï¼Œå…ˆè¿è¡Œuse myTestå‘½ä»¤ï¼Œä¹‹åå°±åšä¸€äº›æ“ä½œï¼ˆå¦‚ï¼šdb.createCollection('user')ï¼‰,è¿™æ ·å°±å¯ä»¥åˆ›å»ºä¸€ä¸ªåå«â€œmyTestâ€çš„æ•°æ®åº“ã€‚
+
+1ã€è¿›å…¥MongoDB shellï¼Œè¿›è¡Œæ•°æ®åº“çš„æ“ä½œ ï¼šmongo
+
+2ã€è¾“å…¥helpå¯ä»¥çœ‹åˆ°åŸºæœ¬æ“ä½œå‘½ä»¤ ï¼šhelp	
+
+3ã€æŸ¥çœ‹æ®åº“æ“ä½œæ–¹æ³•çš„å‘½ä»¤ ï¼š db.help()
+
+4ã€æŸ¥çœ‹å½“å‰å·²ç»å­˜åœ¨çš„æ•°æ®åº“ ï¼šshow dbs
+
+5ã€è¿›å…¥æŸä¸ªæ•°æ®åº“ ï¼šuse dbname
+
+6ã€æŸ¥çœ‹æ•°æ®åº“ä¸­å·²ç»å­˜åœ¨çš„é›†åˆ(è¡¨) : show collections || show tables  
+
+7ã€æŸ¥çœ‹æ•°æ®åº“ä¸­æŸä¸ªé›†åˆçš„æ‰€æœ‰æ•°æ® ï¼šdb.collectionName.find()
+
+8ã€æ˜¾ç¤ºç”¨æˆ· ï¼šshow users
+
+9ã€é€€å‡ºMongoDB Shell ï¼šexit
+
+db.collectionName.help() ï¼šæ˜¾ç¤ºé›†åˆæ“ä½œå‘½ä»¤ï¼ŒåŒæ ·æœ‰å¾ˆå¤šçš„å‘½ä»¤ï¼ŒcollectionNameæŒ‡çš„æ˜¯å½“å‰æ•°æ®åº“ä¸‹ï¼Œä¸€ä¸ªå«collectionNameçš„é›†åˆï¼Œå¹¶éçœŸæ­£æ„ä¹‰ä¸Šçš„å‘½ä»¤ 
+
+db.collectionName.find() ï¼šå¯¹äºå½“å‰æ•°æ®åº“ä¸­çš„collectionNameé›†åˆè¿›è¡Œæ•°æ®æŸ¥æ‰¾ï¼ˆç”±äºæ²¡æœ‰æ¡ä»¶ï¼Œä¼šåˆ—å‡ºæ‰€æœ‰æ•°æ®ï¼‰ 
+
+db.collectionName.find( { a : 1 } ) ï¼šå¯¹äºå½“å‰æ•°æ®åº“ä¸­çš„collectionNameé›†åˆè¿›è¡ŒæŸ¥æ‰¾ï¼Œæ¡ä»¶æ˜¯æ•°æ®ä¸­æœ‰ä¸€ä¸ªå±æ€§å«aï¼Œä¸”açš„å€¼ä¸º1
+
+
+
+=================================== ç”¨æˆ·ç›¸å…³ ===================================
+
+
+
+1ã€æ·»åŠ ä¸€ä¸ªç”¨æˆ·
+
+	db.addUser("name");
+ 
+	db.addUser("userName", "pwd123", true); æ·»åŠ ç”¨æˆ·ã€è®¾ç½®å¯†ç ã€æ˜¯å¦åªè¯»
+
+2ã€æ•°æ®åº“è®¤è¯ã€å®‰å…¨æ¨¡å¼
+
+	db.auth("userName", "123123");
+
+3ã€æ˜¾ç¤ºå½“å‰æ‰€æœ‰ç”¨æˆ·
+
+	show users;
+
+4ã€åˆ é™¤ç”¨æˆ·
+	
+	db.removeUser("userName");
+ 
+ 
+
+=================================== å…¶ä»– ===================================
+
+
+
+1ã€æŸ¥è¯¢ä¹‹å‰çš„é”™è¯¯ä¿¡æ¯
+	
+	db.getPrevError();
+
+2ã€æ¸…é™¤é”™è¯¯è®°å½•
+	
+	db.resetError();
+
+
+ 
+ =================================== MongoDBåŸºæœ¬å‘½ä»¤ ===================================
+ 
+
+1ã€HelpæŸ¥çœ‹å‘½ä»¤æç¤º
+
+	db.help();
+
+	db.yourColl.help();
+
+	db.youColl.find().help();
+
   rs.help();
 
-2¡¢ÇĞ»»/´´½¨Êı¾İ¿â
- use yourDB;  µ±´´½¨Ò»¸ö¼¯ºÏ(table)µÄÊ±ºò»á×Ô¶¯´´½¨µ±Ç°Êı¾İ¿â
+2ã€åˆ‡æ¢/åˆ›å»ºæ•°æ®åº“
 
-3¡¢²éÑ¯ËùÓĞÊı¾İ¿â
- show dbs;
+	use yourDB;  å½“åˆ›å»ºä¸€ä¸ªé›†åˆ(table)çš„æ—¶å€™ä¼šè‡ªåŠ¨åˆ›å»ºå½“å‰æ•°æ®åº“
 
-4¡¢É¾³ıµ±Ç°Ê¹ÓÃÊı¾İ¿â
- db.dropDatabase();
+3ã€æŸ¥è¯¢æ‰€æœ‰æ•°æ®åº“
 
-5¡¢´ÓÖ¸¶¨Ö÷»úÉÏ¿ËÂ¡Êı¾İ¿â
- db.cloneDatabase(¡°127.0.0.1¡±); ½«Ö¸¶¨»úÆ÷ÉÏµÄÊı¾İ¿âµÄÊı¾İ¿ËÂ¡µ½µ±Ç°Êı¾İ¿â
+	show dbs;
 
-6¡¢´ÓÖ¸¶¨µÄ»úÆ÷ÉÏ¸´ÖÆÖ¸¶¨Êı¾İ¿âÊı¾İµ½Ä³¸öÊı¾İ¿â
- db.copyDatabase("mydb", "temp", "127.0.0.1");½«±¾»úµÄmydbµÄÊı¾İ¸´ÖÆµ½tempÊı¾İ¿âÖĞ
+4ã€åˆ é™¤å½“å‰ä½¿ç”¨æ•°æ®åº“
 
-7¡¢ĞŞ¸´µ±Ç°Êı¾İ¿â
- db.repairDatabase();
+	db.dropDatabase();
 
-8¡¢²é¿´µ±Ç°Ê¹ÓÃµÄÊı¾İ¿â
- db.getName();
- db; dbºÍgetName·½·¨ÊÇÒ»ÑùµÄĞ§¹û£¬¶¼¿ÉÒÔ²éÑ¯µ±Ç°Ê¹ÓÃµÄÊı¾İ¿â
+5ã€ä»æŒ‡å®šä¸»æœºä¸Šå…‹éš†æ•°æ®åº“
 
-9¡¢ÏÔÊ¾µ±Ç°db×´Ì¬
- db.stats();
+	db.cloneDatabase(â€œ127.0.0.1â€); å°†æŒ‡å®šæœºå™¨ä¸Šçš„æ•°æ®åº“çš„æ•°æ®å…‹éš†åˆ°å½“å‰æ•°æ®åº“
 
-10¡¢µ±Ç°db°æ±¾
- db.version();
+6ã€ä»æŒ‡å®šçš„æœºå™¨ä¸Šå¤åˆ¶æŒ‡å®šæ•°æ®åº“æ•°æ®åˆ°æŸä¸ªæ•°æ®åº“
 
-11¡¢²é¿´µ±Ç°dbµÄÁ´½Ó»úÆ÷µØÖ·
- db.getMongo();
+	db.copyDatabase("mydb", "temp", "127.0.0.1");å°†æœ¬æœºçš„mydbçš„æ•°æ®å¤åˆ¶åˆ°tempæ•°æ®åº“ä¸­
 
-=================================== Collection¾Û¼¯¼¯ºÏÏà¹Ø(table) ===================================
+7ã€ä¿®å¤å½“å‰æ•°æ®åº“
 
-1¡¢´´½¨Ò»¸ö¾Û¼¯¼¯ºÏ£¨table£©
- db.createCollection(¡°collName¡±, {size: 20, capped: 5, max: 100});
+	db.repairDatabase();
 
-2¡¢µÃµ½Ö¸¶¨Ãû³ÆµÄ¾Û¼¯¼¯ºÏ£¨table£©
- db.getCollection("account");
+8ã€æŸ¥çœ‹å½“å‰ä½¿ç”¨çš„æ•°æ®åº“
 
-3¡¢µÃµ½µ±Ç°dbµÄËùÓĞ¾Û¼¯¼¯ºÏ
- db.getCollectionNames();
+	db.getName();
 
-4¡¢ÏÔÊ¾µ±Ç°dbËùÓĞ¾Û¼¯Ë÷ÒıµÄ×´Ì¬
- db.printCollectionStats();
+	db; dbå’ŒgetNameæ–¹æ³•æ˜¯ä¸€æ ·çš„æ•ˆæœï¼Œéƒ½å¯ä»¥æŸ¥è¯¢å½“å‰ä½¿ç”¨çš„æ•°æ®åº“
 
-=================================== ²é¿´¾Û¼¯¼¯ºÏ»ù±¾ĞÅÏ¢ ===================================
+9ã€æ˜¾ç¤ºå½“å‰dbçŠ¶æ€
 
-1¡¢²é¿´°ïÖú  db.yourColl.help();
+	db.stats();
 
-2¡¢²éÑ¯µ±Ç°¼¯ºÏµÄÊı¾İÌõÊı  db.yourColl.count();
+10ã€å½“å‰dbç‰ˆæœ¬
 
-3¡¢²é¿´Êı¾İ¿Õ¼ä´óĞ¡ db.userInfo.dataSize();
+	db.version();
 
-4¡¢µÃµ½µ±Ç°¾Û¼¯¼¯ºÏËùÔÚµÄdb db.userInfo.getDB();
+11ã€æŸ¥çœ‹å½“å‰dbçš„é“¾æ¥æœºå™¨åœ°å€
 
-5¡¢µÃµ½µ±Ç°¾Û¼¯µÄ×´Ì¬ db.userInfo.stats();
+	db.getMongo();
 
-6¡¢µÃµ½¾Û¼¯¼¯ºÏ×Ü´óĞ¡ db.userInfo.totalSize();
+=================================== Collectionèšé›†é›†åˆç›¸å…³(table) ===================================
 
-7¡¢¾Û¼¯¼¯ºÏ´¢´æ¿Õ¼ä´óĞ¡ db.userInfo.storageSize();
+1ã€åˆ›å»ºä¸€ä¸ªèšé›†é›†åˆï¼ˆtableï¼‰
+ 
+	db.createCollection(â€œcollNameâ€, {size: 20, capped: 5, max: 100});
 
-8¡¢Shard°æ±¾ĞÅÏ¢  db.userInfo.getShardVersion()
+2ã€å¾—åˆ°æŒ‡å®šåç§°çš„èšé›†é›†åˆï¼ˆtableï¼‰
+ 
+	db.getCollection("account");
 
-9¡¢¾Û¼¯¼¯ºÏÖØÃüÃû db.userInfo.renameCollection("users"); ½«userInfoÖØÃüÃûÎªusers
+3ã€å¾—åˆ°å½“å‰dbçš„æ‰€æœ‰èšé›†é›†åˆ
+ 
+	db.getCollectionNames();
 
-10¡¢É¾³ıµ±Ç°¾Û¼¯¼¯ºÏ db.userInfo.drop();
+4ã€æ˜¾ç¤ºå½“å‰dbæ‰€æœ‰èšé›†ç´¢å¼•çš„çŠ¶æ€
+ 
+	db.printCollectionStats();
 
-=================================== ¾Û¼¯¼¯ºÏ²éÑ¯ ===================================
+=================================== æŸ¥çœ‹èšé›†é›†åˆåŸºæœ¬ä¿¡æ¯ ===================================
 
-1¡¢²éÑ¯ËùÓĞ¼ÇÂ¼
+1ã€æŸ¥çœ‹å¸®åŠ©  db.yourColl.help();
+
+2ã€æŸ¥è¯¢å½“å‰é›†åˆçš„æ•°æ®æ¡æ•°  db.yourColl.count();
+
+3ã€æŸ¥çœ‹æ•°æ®ç©ºé—´å¤§å° db.userInfo.dataSize();
+
+4ã€å¾—åˆ°å½“å‰èšé›†é›†åˆæ‰€åœ¨çš„db db.userInfo.getDB();
+
+5ã€å¾—åˆ°å½“å‰èšé›†çš„çŠ¶æ€ db.userInfo.stats();
+
+6ã€å¾—åˆ°èšé›†é›†åˆæ€»å¤§å° db.userInfo.totalSize();
+
+7ã€èšé›†é›†åˆå‚¨å­˜ç©ºé—´å¤§å° db.userInfo.storageSize();
+
+8ã€Shardç‰ˆæœ¬ä¿¡æ¯  db.userInfo.getShardVersion()
+
+9ã€èšé›†é›†åˆé‡å‘½å db.userInfo.renameCollection("users"); å°†userInfoé‡å‘½åä¸ºusers
+
+10ã€åˆ é™¤å½“å‰èšé›†é›†åˆ db.userInfo.drop();
+
+=================================== èšé›†é›†åˆæŸ¥è¯¢ ===================================
+
+1ã€æŸ¥è¯¢æ‰€æœ‰è®°å½•
 db.userInfo.find();
-Ïàµ±ÓÚ£ºselect* from userInfo;
-Ä¬ÈÏÃ¿Ò³ÏÔÊ¾20Ìõ¼ÇÂ¼£¬µ±ÏÔÊ¾²»ÏÂµÄÇé¿öÏÂ£¬¿ÉÒÔÓÃitµü´úÃüÁî²éÑ¯ÏÂÒ»Ò³Êı¾İ¡£×¢Òâ£º¼üÈëitÃüÁî²»ÄÜ´ø¡°£»¡±
-µ«ÊÇÄã¿ÉÒÔÉèÖÃÃ¿Ò³ÏÔÊ¾Êı¾İµÄ´óĞ¡£¬ÓÃDBQuery.shellBatchSize= 50;ÕâÑùÃ¿Ò³¾ÍÏÔÊ¾50Ìõ¼ÇÂ¼ÁË¡£
+ç›¸å½“äºï¼šselect* from userInfo;
+é»˜è®¤æ¯é¡µæ˜¾ç¤º20æ¡è®°å½•ï¼Œå½“æ˜¾ç¤ºä¸ä¸‹çš„æƒ…å†µä¸‹ï¼Œå¯ä»¥ç”¨itè¿­ä»£å‘½ä»¤æŸ¥è¯¢ä¸‹ä¸€é¡µæ•°æ®ã€‚æ³¨æ„ï¼šé”®å…¥itå‘½ä»¤ä¸èƒ½å¸¦â€œï¼›â€
+ä½†æ˜¯ä½ å¯ä»¥è®¾ç½®æ¯é¡µæ˜¾ç¤ºæ•°æ®çš„å¤§å°ï¼Œç”¨DBQuery.shellBatchSize= 50;è¿™æ ·æ¯é¡µå°±æ˜¾ç¤º50æ¡è®°å½•äº†ã€‚
  
-2¡¢²éÑ¯È¥µôºóµÄµ±Ç°¾Û¼¯¼¯ºÏÖĞµÄÄ³ÁĞµÄÖØ¸´Êı¾İ
+2ã€æŸ¥è¯¢å»æ‰åçš„å½“å‰èšé›†é›†åˆä¸­çš„æŸåˆ—çš„é‡å¤æ•°æ®
 db.userInfo.distinct("name");
-»á¹ıÂËµônameÖĞµÄÏàÍ¬Êı¾İ
-Ïàµ±ÓÚ£ºselect distict name from userInfo;
+ä¼šè¿‡æ»¤æ‰nameä¸­çš„ç›¸åŒæ•°æ®
+ç›¸å½“äºï¼šselect distict name from userInfo;
 
-3¡¢²éÑ¯age = 22µÄ¼ÇÂ¼
+3ã€æŸ¥è¯¢age = 22çš„è®°å½•
 db.userInfo.find({"age": 22});
-Ïàµ±ÓÚ£º select * from userInfo where age = 22;
+ç›¸å½“äºï¼š select * from userInfo where age = 22;
 
-4¡¢²éÑ¯age > 22µÄ¼ÇÂ¼
+4ã€æŸ¥è¯¢age > 22çš„è®°å½•
 db.userInfo.find({age: {$gt: 22}});
-Ïàµ±ÓÚ£ºselect * from userInfo where age >22;
+ç›¸å½“äºï¼šselect * from userInfo where age >22;
 
-5¡¢²éÑ¯age < 22µÄ¼ÇÂ¼
+5ã€æŸ¥è¯¢age < 22çš„è®°å½•
 db.userInfo.find({age: {$lt: 22}});
-Ïàµ±ÓÚ£ºselect * from userInfo where age <22;
+ç›¸å½“äºï¼šselect * from userInfo where age <22;
 
-6¡¢²éÑ¯age >= 25µÄ¼ÇÂ¼
+6ã€æŸ¥è¯¢age >= 25çš„è®°å½•
 db.userInfo.find({age: {$gte: 25}});
-Ïàµ±ÓÚ£ºselect * from userInfo where age >= 25;
+ç›¸å½“äºï¼šselect * from userInfo where age >= 25;
  
-7¡¢²éÑ¯age <= 25µÄ¼ÇÂ¼
+7ã€æŸ¥è¯¢age <= 25çš„è®°å½•
 db.userInfo.find({age: {$lte: 25}});
  
-8¡¢²éÑ¯age >= 23 ²¢ÇÒ age <= 26
+8ã€æŸ¥è¯¢age >= 23 å¹¶ä¸” age <= 26
 db.userInfo.find({age: {$gte: 23, $lte: 26}});
 
-9¡¢²éÑ¯nameÖĞ°üº¬ mongoµÄÊı¾İ
+9ã€æŸ¥è¯¢nameä¸­åŒ…å« mongoçš„æ•°æ®
 db.userInfo.find({name: /mongo/});
-//Ïàµ±ÓÚ%%
-select * from userInfo where name like ¡®%mongo%¡¯;
+//ç›¸å½“äº%%
+select * from userInfo where name like â€˜%mongo%â€™;
 
-10¡¢²éÑ¯nameÖĞÒÔmongo¿ªÍ·µÄ
+10ã€æŸ¥è¯¢nameä¸­ä»¥mongoå¼€å¤´çš„
 db.userInfo.find({name: /^mongo/});
-select * from userInfo where name like ¡®mongo%¡¯;
+select * from userInfo where name like â€˜mongo%â€™;
 
-11¡¢²éÑ¯Ö¸¶¨ÁĞname¡¢ageÊı¾İ
+11ã€æŸ¥è¯¢æŒ‡å®šåˆ—nameã€ageæ•°æ®
 db.userInfo.find({}, {name: 1, age: 1});
-Ïàµ±ÓÚ£ºselect name, age from userInfo;
-µ±È»nameÒ²¿ÉÒÔÓÃtrue»òfalse,µ±ÓÃtureµÄÇé¿öÏÂºÓname:1Ğ§¹ûÒ»Ñù£¬Èç¹ûÓÃfalse¾ÍÊÇÅÅ³ıname£¬ÏÔÊ¾nameÒÔÍâµÄÁĞĞÅÏ¢¡£
+ç›¸å½“äºï¼šselect name, age from userInfo;
+å½“ç„¶nameä¹Ÿå¯ä»¥ç”¨trueæˆ–false,å½“ç”¨tureçš„æƒ…å†µä¸‹æ²³name:1æ•ˆæœä¸€æ ·ï¼Œå¦‚æœç”¨falseå°±æ˜¯æ’é™¤nameï¼Œæ˜¾ç¤ºnameä»¥å¤–çš„åˆ—ä¿¡æ¯ã€‚
 
-12¡¢²éÑ¯Ö¸¶¨ÁĞname¡¢ageÊı¾İ, age > 25
+12ã€æŸ¥è¯¢æŒ‡å®šåˆ—nameã€ageæ•°æ®, age > 25
 db.userInfo.find({age: {$gt: 25}}, {name: 1, age: 1});
-Ïàµ±ÓÚ£ºselect name, age from userInfo where age >25;
+ç›¸å½“äºï¼šselect name, age from userInfo where age >25;
 
-13¡¢°´ÕÕÄêÁäÅÅĞò
-ÉıĞò£ºdb.userInfo.find().sort({age: 1});
-½µĞò£ºdb.userInfo.find().sort({age: -1});
+13ã€æŒ‰ç…§å¹´é¾„æ’åº
+å‡åºï¼šdb.userInfo.find().sort({age: 1});
+é™åºï¼šdb.userInfo.find().sort({age: -1});
 
-14¡¢²éÑ¯name = zhangsan, age = 22µÄÊı¾İ
+14ã€æŸ¥è¯¢name = zhangsan, age = 22çš„æ•°æ®
 db.userInfo.find({name: 'zhangsan', age: 22});
-Ïàµ±ÓÚ£ºselect * from userInfo where name = ¡®zhangsan¡¯ and age = ¡®22¡¯;
+ç›¸å½“äºï¼šselect * from userInfo where name = â€˜zhangsanâ€™ and age = â€˜22â€™;
 
-15¡¢²éÑ¯Ç°5ÌõÊı¾İ
+15ã€æŸ¥è¯¢å‰5æ¡æ•°æ®
 db.userInfo.find().limit(5);
-Ïàµ±ÓÚ£ºselecttop 5 * from userInfo; 
+ç›¸å½“äºï¼šselecttop 5 * from userInfo; 
 
-16¡¢²éÑ¯10ÌõÒÔºóµÄÊı¾İ
+16ã€æŸ¥è¯¢10æ¡ä»¥åçš„æ•°æ®
 db.userInfo.find().skip(10);
-Ïàµ±ÓÚ£ºselect * from userInfo where id not in (
+ç›¸å½“äºï¼šselect * from userInfo where id not in (
 selecttop 10 * from userInfo
 );
 
-17¡¢²éÑ¯ÔÚ5-10Ö®¼äµÄÊı¾İ
+17ã€æŸ¥è¯¢åœ¨5-10ä¹‹é—´çš„æ•°æ®
 db.userInfo.find().limit(10).skip(5);
-¿ÉÓÃÓÚ·ÖÒ³£¬limitÊÇpageSize£¬skipÊÇµÚ¼¸Ò³*pageSize
+å¯ç”¨äºåˆ†é¡µï¼Œlimitæ˜¯pageSizeï¼Œskipæ˜¯ç¬¬å‡ é¡µ*pageSize
 
-18¡¢orÓë ²éÑ¯
+18ã€orä¸ æŸ¥è¯¢
 db.userInfo.find({$or: [{age: 22}, {age: 25}]});
-Ïàµ±ÓÚ£ºselect * from userInfo where age = 22 or age = 25;
+ç›¸å½“äºï¼šselect * from userInfo where age = 22 or age = 25;
 
-19¡¢²éÑ¯µÚÒ»ÌõÊı¾İ
+19ã€æŸ¥è¯¢ç¬¬ä¸€æ¡æ•°æ®
 db.userInfo.findOne();
-Ïàµ±ÓÚ£ºselecttop 1 * from userInfo;
+ç›¸å½“äºï¼šselecttop 1 * from userInfo;
 db.userInfo.find().limit(1);
 
-20¡¢²éÑ¯Ä³¸ö½á¹û¼¯µÄ¼ÇÂ¼ÌõÊı
+20ã€æŸ¥è¯¢æŸä¸ªç»“æœé›†çš„è®°å½•æ¡æ•°
 db.userInfo.find({age: {$gte: 25}}).count();
-Ïàµ±ÓÚ£ºselect count(*) from userInfo where age >= 20;
-Èç¹ûÒª·µ»ØÏŞÖÆÖ®ºóµÄ¼ÇÂ¼ÊıÁ¿£¬ÒªÊ¹ÓÃcount(true)»òÕßcount(·Ç0) 
+ç›¸å½“äºï¼šselect count(*) from userInfo where age >= 20;
+å¦‚æœè¦è¿”å›é™åˆ¶ä¹‹åçš„è®°å½•æ•°é‡ï¼Œè¦ä½¿ç”¨count(true)æˆ–è€…count(é0) 
 db.users.find().skip(10).limit(5).count(true);
 
-21¡¢°´ÕÕÄ³ÁĞ½øĞĞÅÅĞò
+21ã€æŒ‰ç…§æŸåˆ—è¿›è¡Œæ’åº
 db.userInfo.find({sex: {$exists: true}}).count();
-Ïàµ±ÓÚ£ºselect count(sex) from userInfo;
+ç›¸å½“äºï¼šselect count(sex) from userInfo;
 
-=================================== Ë÷Òı ===================================
+=================================== ç´¢å¼• ===================================
 
-1¡¢´´½¨Ë÷Òı
-db.userInfo.ensureIndex({name: 1});
-db.userInfo.ensureIndex({name: 1, ts: -1});
+1ã€åˆ›å»ºç´¢å¼•
+	
+	db.userInfo.ensureIndex({name: 1});
+	
+	db.userInfo.ensureIndex({name: 1, ts: -1});
 
-2¡¢²éÑ¯µ±Ç°¾Û¼¯¼¯ºÏËùÓĞË÷Òı
-db.userInfo.getIndexes();
+2ã€æŸ¥è¯¢å½“å‰èšé›†é›†åˆæ‰€æœ‰ç´¢å¼•
+	
+	db.userInfo.getIndexes();
 
-3¡¢²é¿´×ÜË÷Òı¼ÇÂ¼´óĞ¡
-db.userInfo.totalIndexSize();
+3ã€æŸ¥çœ‹æ€»ç´¢å¼•è®°å½•å¤§å°
 
-4¡¢¶ÁÈ¡µ±Ç°¼¯ºÏµÄËùÓĞindexĞÅÏ¢
-db.users.reIndex();
+	db.userInfo.totalIndexSize();
 
-5¡¢É¾³ıÖ¸¶¨Ë÷Òı
-db.users.dropIndex("name_1");
+4ã€è¯»å–å½“å‰é›†åˆçš„æ‰€æœ‰indexä¿¡æ¯
+	
+	db.users.reIndex();
 
-6¡¢É¾³ıËùÓĞË÷ÒıË÷Òı
-db.users.dropIndexes();
+5ã€åˆ é™¤æŒ‡å®šç´¢å¼•
 
-=================================== ĞŞ¸Ä¡¢Ìí¼Ó¡¢É¾³ı¼¯ºÏÊı¾İ ===================================
+	db.users.dropIndex("name_1");
 
-1¡¢Ìí¼Ó
-Ìí¼ÓµÄÊı¾İµÄÊı¾İÁĞ£¬Ã»ÓĞ¹Ì¶¨£¬¸ù¾İÌí¼ÓµÄÊı¾İÎª×¼
-db.users.save({name: 'zhangsan', age: 25, sex: true}); 
+6ã€åˆ é™¤æ‰€æœ‰ç´¢å¼•ç´¢å¼•
 
-2¡¢ĞŞ¸Ä
-db.collection.update(criteria, objNew, upsert, multi )
-	criteria : updateµÄ²éÑ¯Ìõ¼ş£¬ÀàËÆsql update²éÑ¯ÄÚwhereºóÃæµÄ
-	objNew : updateµÄ¶ÔÏóºÍÒ»Ğ©¸üĞÂµÄ²Ù×÷·û£¨Èç$,$inc...£©µÈ£¬Ò²¿ÉÒÔÀí½âÎªsql update²éÑ¯ÄÚsetºóÃæµÄ¡£
-	upsert : Èç¹û²»´æÔÚupdateµÄ¼ÇÂ¼£¬ÊÇ·ñ²åÈëobjNew,trueÎª²åÈë£¬Ä¬ÈÏÊÇfalse£¬²»²åÈë¡£
-	multi : mongodbÄ¬ÈÏÊÇfalse,Ö»¸üĞÂÕÒµ½µÄµÚÒ»Ìõ¼ÇÂ¼£¬Èç¹ûÕâ¸ö²ÎÊıÎªtrue,¾Í°Ñ°´Ìõ¼ş²é³öÀ´¶àÌõ¼ÇÂ¼È«²¿¸üĞÂ¡£
+	db.users.dropIndexes();
 
-db.users.update({age: 25}, {$set: {name: 'changeName'}}, false, true);
-Ïàµ±ÓÚ£ºupdate users set name = ¡®changeName¡¯ where age = 25; 
+=================================== ä¿®æ”¹ã€æ·»åŠ ã€åˆ é™¤é›†åˆæ•°æ® ===================================
 
-db.users.update({name: 'Lisi'}, {$inc: {age: 50}}, false, true);
-Ïàµ±ÓÚ£ºupdate users set age = age + 50 where name = ¡®Lisi¡¯;
+1ã€æ·»åŠ 
+
+# æ·»åŠ çš„æ•°æ®çš„æ•°æ®åˆ—ï¼Œæ²¡æœ‰å›ºå®šï¼Œæ ¹æ®æ·»åŠ çš„æ•°æ®ä¸ºå‡†
+
+	db.users.save({name: 'zhangsan', age: 25, sex: true}); 
+
+2ã€ä¿®æ”¹
+
+	db.collection.update(criteria, objNew, upsert, multi )
+	
+		criteria : updateçš„æŸ¥è¯¢æ¡ä»¶ï¼Œç±»ä¼¼sql updateæŸ¥è¯¢å†…whereåé¢çš„
+		
+		objNew : updateçš„å¯¹è±¡å’Œä¸€äº›æ›´æ–°çš„æ“ä½œç¬¦ï¼ˆå¦‚$,$inc...ï¼‰ç­‰ï¼Œä¹Ÿå¯ä»¥ç†è§£ä¸ºsql updateæŸ¥è¯¢å†…setåé¢çš„ã€‚
+		
+		upsert : å¦‚æœä¸å­˜åœ¨updateçš„è®°å½•ï¼Œæ˜¯å¦æ’å…¥objNew,trueä¸ºæ’å…¥ï¼Œé»˜è®¤æ˜¯falseï¼Œä¸æ’å…¥ã€‚
+		
+		multi : mongodbé»˜è®¤æ˜¯false,åªæ›´æ–°æ‰¾åˆ°çš„ç¬¬ä¸€æ¡è®°å½•ï¼Œå¦‚æœè¿™ä¸ªå‚æ•°ä¸ºtrue,å°±æŠŠæŒ‰æ¡ä»¶æŸ¥å‡ºæ¥å¤šæ¡è®°å½•å…¨éƒ¨æ›´æ–°ã€‚
+
+	db.users.update({age: 25}, {$set: {name: 'changeName'}}, false, true);
+
+		ç›¸å½“äºï¼šupdate users set name = â€˜changeNameâ€™ where age = 25; 
+
+	db.users.update({name: 'Lisi'}, {$inc: {age: 50}}, false, true);
+
+		ç›¸å½“äºï¼šupdate users set age = age + 50 where name = â€˜Lisiâ€™;
+		 
+	db.users.update({name: 'Lisi'}, {$inc: {age: 50}, $set: {name: 'hoho'}}, false, true);
+
+		ç›¸å½“äºï¼šupdate users set age = age + 50, name = â€˜hohoâ€™ where name = â€˜Lisiâ€™;
  
-db.users.update({name: 'Lisi'}, {$inc: {age: 50}, $set: {name: 'hoho'}}, false, true);
-Ïàµ±ÓÚ£ºupdate users set age = age + 50, name = ¡®hoho¡¯ where name = ¡®Lisi¡¯;
- 
-3¡¢É¾³ı
-db.users.remove({age: 132});
- 
-4¡¢²éÑ¯ĞŞ¸ÄÉ¾³ı
-db.users.findAndModify({
-    query: {age: {$gte: 25}},
-    sort: {age: -1},
-    update: {$set: {name: 'a2'}, $inc: {age: 2}},
-    remove: true
-});
+3ã€åˆ é™¤
 
-db.runCommand({ findandmodify : "users",
-    query: {age: {$gte: 25}},
-    sort: {age: -1},
-    update: {$set: {name: 'a2'}, $inc: {age: 2}},
-    remove: true
-});
+	db.users.remove({age: 132});
+ 
+4ã€æŸ¥è¯¢ä¿®æ”¹åˆ é™¤
+
+	db.users.findAndModify({
+		query: {age: {$gte: 25}},
+		sort: {age: -1},
+		update: {$set: {name: 'a2'}, $inc: {age: 2}},
+		remove: true
+	});
+
+	db.runCommand({ findandmodify : "users",
+		query: {age: {$gte: 25}},
+		sort: {age: -1},
+		update: {$set: {name: 'a2'}, $inc: {age: 2}},
+		remove: true
+	});

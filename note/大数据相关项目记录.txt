@@ -1,32 +1,34 @@
+ï»¿
+================================	ç³»ç»Ÿåœ°å€åŠè·¯å¾„ ================================
 
-================================	ÏµÍ³µØÖ·¼°Â·¾¶ ================================
+sparkå®˜æ–¹é…ç½®æ–‡ä»¶ spark-defaults.conf å±æ€§è¯´æ˜ï¼šhttp://spark.apache.org/docs/latest/configuration.html
 
-¼¯Èº¹ÜÀí cloudrea manager µØÖ· -- http://s12083:7180/cmf/home  admin/admin
+é›†ç¾¤ç®¡ç† cloudrea manager åœ°å€ -- http://s12083:7180/cmf/home  admin/admin
 
-smarketµØÖ·
-http://10.4.120.83:8082/smarket ÕËºÅ/ÃÜÂë test@neusoft.com/qweqwe123
+smarketåœ°å€
+http://10.4.120.83:8082/smarket è´¦å·/å¯†ç  test@neusoft.com/qweqwe123
 
-spark web-ui Ä¬ÈÏµØÖ·master ip:8080
-spark yarn Ä£Ê½ÈÎÎñÍ³¼Æ µØÖ· http://master ip:8088/cluster
+spark web-ui é»˜è®¤åœ°å€master ip:8080
+spark yarn æ¨¡å¼ä»»åŠ¡ç»Ÿè®¡ åœ°å€ http://master ip:8088/cluster
 
-# ÆäËû£¨·ÇCDH£©Ïà¹Ø¿ò¼Ü´æ·ÅÂ·¾¶ master-83 
+# å…¶ä»–ï¼ˆéCDHï¼‰ç›¸å…³æ¡†æ¶å­˜æ”¾è·¯å¾„ master-83 
 	/opt/neu --> spark2.0 mongodb storm ci-manager smarket... 
 	
-# smarket Ïà¹Ø
-	smarketµÄshell½Å±¾Â·¾¶
+# smarket ç›¸å…³
+	smarketçš„shellè„šæœ¬è·¯å¾„
 	/opt/neu/smarket/smarket-gateway-2.5.1-SNAPSHOT/bin
-	smarketÒÀÀµjar°ü´æ·ÅÂ·¾¶
+	smarketä¾èµ–jaråŒ…å­˜æ”¾è·¯å¾„
 	/opt/neu/smarket/smarket-gateway-2.5.1-SNAPSHOT/lib
-	setEnv.shÂ·¾¶
+	setEnv.shè·¯å¾„
 	/opt/neu/smarket/smarket-gateway-2.5.1-SNAPSHOT/etc
 
-# CDH Ïà¹Ø
-	cdh jar°ü´æ·ÅÂ·¾¶
+# CDH ç›¸å…³
+	cdh jaråŒ…å­˜æ”¾è·¯å¾„
 	/opt/cloudera/parcels/CDH/jars
-	cdhÏà¹Ø¿ò¼Ü´æ·ÅÂ·¾¶ /etc
-	ÀıÈçhadoop´æ·ÅÔÚ /etc/hadoop
+	cdhç›¸å…³æ¡†æ¶å­˜æ”¾è·¯å¾„ /etc
+	ä¾‹å¦‚hadoopå­˜æ”¾åœ¨ /etc/hadoop
 
-# spark×ÔÉíÒÀÀµjar°üÂ·¾¶ (·ÇcdhÖĞµÄspark)
+# sparkè‡ªèº«ä¾èµ–jaråŒ…è·¯å¾„ (écdhä¸­çš„spark)
 	/opt/neu/spark/jars
 
 ================================================================================================
@@ -34,80 +36,69 @@ spark yarn Ä£Ê½ÈÎÎñÍ³¼Æ µØÖ· http://master ip:8088/cluster
 
 
 
-================================	¼¯ÈºÏà¹ØÃüÁî  ================================
+================================	é›†ç¾¤ç›¸å…³å‘½ä»¤  ================================
 
-ÔÚhdfsÓÃ»§ÏÂ,½«linuxÎÄ¼ş´«µ½hdfsÉÏ : hadoop fs -[put|ls|mkdir|rm] /usr/zhangqiang/kmeans_data.txt /data-zhangqiang
-²é¿´hdfs¸ùÄ¿Â¼ÖĞµÄÎÄ¼şºÍÎÄ¼ş¼Ğ£¬²»ÒªÍüÁË'/'   hadoop fs -ls /  
-É¾³ıÎÄ¼ş¼ĞºÍÎÄ¼ş¼ĞÖĞËùÓĞµÄÎÄ¼ş hadoop fs -rm -r [/ÎÄ¼ş¼ĞÂ·¾¶]
+åœ¨hdfsç”¨æˆ·ä¸‹,å°†linuxæ–‡ä»¶ä¼ åˆ°hdfsä¸Š : hadoop fs -[put|ls|mkdir|rm] /usr/zhangqiang/kmeans_data.txt /data-zhangqiang
+æŸ¥çœ‹hdfsæ ¹ç›®å½•ä¸­çš„æ–‡ä»¶å’Œæ–‡ä»¶å¤¹ï¼Œä¸è¦å¿˜äº†'/'   hadoop fs -ls /  
+åˆ é™¤æ–‡ä»¶å¤¹å’Œæ–‡ä»¶å¤¹ä¸­æ‰€æœ‰çš„æ–‡ä»¶ hadoop fs -rm -r [/æ–‡ä»¶å¤¹è·¯å¾„]
 
 
-sparkÆô¶¯ÃüÁî -- MLlib K-means ÊµÏÖ
-# ¶à¸öÍâ²¿jar°üÒıÓÃ£¬Ìá½»µ½yarnÉÏ
+sparkå¯åŠ¨å‘½ä»¤ -- MLlib K-means å®ç°
+# å¤šä¸ªå¤–éƒ¨jaråŒ…å¼•ç”¨ï¼Œæäº¤åˆ°yarnä¸Š
 spark-submit --master yarn --class com.neusoft.client.KMeansRun --jars /usr/zhangqiang/mongo-java-driver-3.2.2.jar,/usr/zhangqiang/ojdbc14.jar /usr/zhangqiang/smarket-spark.jar hdfs:///data-zhangqiang/exceptData.txt hdfs:///data-zhangqiang/exceptData.txt  5 30 30
-# ¿íÒÀÀµ´ò°ü·½Ê½Ìá½»£¬Ìá½»µ½yarnÉÏ
+# å®½ä¾èµ–æ‰“åŒ…æ–¹å¼æäº¤ï¼Œæäº¤åˆ°yarnä¸Š
 spark-submit --master yarn --class com.neusoft.client.KMeansRun /usr/zhangqiang/smarket-spark-assembly-1.0.jar hdfs:///data-zhangqiang/exceptData.txt hdfs:///data-zhangqiang/exceptData.txt  5 30 30
-# KMeansRun --- ½«ËùÓĞÒÀÀµµÄjar°ü·ÅÔÚsparkÂ·¾¶ÏÂ£º
+# KMeansRun --- å°†æ‰€æœ‰ä¾èµ–çš„jaråŒ…æ”¾åœ¨sparkè·¯å¾„ä¸‹ï¼š
 spark-submit --master yarn --class com.neusoft.client.KMeansRun /usr/zhangqiang/smarket-spark.jar hdfs:///data-zhangqiang/exceptData.txt hdfs:///data-zhangqiang/exceptData.txt  5 30 30
-# ·ÖÀà¾ö²ßÊ÷ MLlib¿â ClassificationDecisionTree --- 
+# åˆ†ç±»å†³ç­–æ ‘ MLlibåº“ ClassificationDecisionTree 
 spark-submit --master yarn --class com.neusoft.client.ClassificationDecisionTree /usr/zhangqiang/smarket-spark.jar
-# ·ÖÀà¾ö²ßÊ÷ ML¿â
+# åˆ†ç±»å†³ç­–æ ‘ MLåº“
 spark-submit --master yarn --class com.neusoft.client.ClassificationDecisionTreeML /usr/zhangqiang/smarket-spark.jar
-# ±£´æ¾ö²ßÊ÷Êı¾İµ½ÎÄ¼ş
+# ä¿å­˜å†³ç­–æ ‘æ•°æ®åˆ°æ–‡ä»¶
 spark-submit --master yarn --class com.neusoft.util.SaveHBaseDataAsLibSVMFile /usr/zhangqiang/smarket-spark.jar
 
 
 
-hbase ±í¼ì²éÃüÁî hbase hbck
-hbase ±íĞŞ¸´ hbase hbck -fix
+hbase è¡¨æ£€æŸ¥å‘½ä»¤ hbase hbck
+hbase è¡¨ä¿®å¤ hbase hbck -fix
 
+# å°†ä¿®æ”¹çš„sparkçš„é»˜è®¤å±æ€§é…ç½®æ–‡ä»¶å‘é€åˆ°å„ä¸ªèŠ‚ç‚¹
+scp spark-defaults.conf neu@s12181:/opt/neu/spark/conf
+scp spark-defaults.conf neu@s12191:/opt/neu/spark/conf
+scp spark-defaults.conf neu@s12192:/opt/neu/spark/conf
+
+# é…ç½®å¯åŠ¨å‚æ•°
+spark-submit --master yarn --deploy-mode client --executor-cores 8 --num-executors 30 --class com.neusoft.client.Client /usr/zhangqiang/smarket-remould.jar
+
+# æ‰§è¡Œæ‰“æ ‡ç­¾çš„è„šæœ¬
+spark-submit --class com.neusoft.client.personas.TagLabel --master yarn --deploy-mode client --executor-cores 6 --num-executors 5  /usr/zhangqiang/smarket-remould.jar
 ================================================================================================
 
 
-================================  Òì³£´¦Àí¼ÇÂ¼  ================================
-
-# 2017/3/1
-# Ê¹ÓÃ Spark ML ¾ö²ßÊ÷¹¹½¨ DataFrame µÄÊ±ºò³öÏÖÏÂÃæµÄÒì³£
-java.lang.IllegalArgumentException: requirement failed: Column features must be of type org.apache.spark.ml.linalg.VectorUDT@3bfc3ba7 but was actually org.apache.spark.mllib.linalg.VectorUDT@f71b0bce.
-# ½â¾ö°ì·¨£º
-	½«import org.apache.spark.mllib.linalg.Vectors ¸ÄÎª import org.apache.spark.ml.linalg.Vectors
 
 
-# 2017/3/1
-# ÔËĞĞ Spark ML ¾ö²ßÊ÷µÄÊ±ºò³öÏÖ java.lang.OutOfMemoryError: PermGen space £¨ÓÀÉú´úµÄÄÚ´æÒç³ö£©
-# ½â¾ö·½·¨£º
-	ÔÚIDEAµÄrun configurationÖĞÌí¼ÓVM options  -XX:PermSize=128m
-# Ô­Òò£º
-	PermGen spaceÓÃÓÚ´æ·ÅClassºÍMetaµÄĞÅÏ¢,ClassÔÚ±» LoadµÄÊ±ºò±»·ÅÈëPermGen spaceÇøÓò£¬ËüºÍºÍ´æ·ÅInstanceµÄHeapÇøÓò
-²»Í¬,GC(Garbage Collection)²»»áÔÚÖ÷³ÌĞòÔËĞĞÆÚ¶ÔPermGen space½øĞĞÇåÀí£¬ËùÒÔÈç¹ûÄãµÄAPP»áLOADºÜ¶àCLASSµÄ»°,¾ÍºÜ¿ÉÄÜ
-³öÏÖPermGen space´íÎó¡£ÕâÖÖ´íÎó³£¼ûÔÚweb·şÎñÆ÷¶ÔJSP½øĞĞpre compileµÄÊ±ºò¡£
-# ¸ÄÕı·½·¨£º
-	-Xms256m -Xmx256m -XX:MaxNewSize=256m -XX:MaxPermSize=256m 
+================================   ç³»ç»Ÿè®¾è®¡  ================================
 
-================================================================================================
-
-
-================================   ÏµÍ³Éè¼Æ  ================================
-
-1¡¢ÓÃ»§»­Ïñ 				ĞÕÃû¡¢ĞÔ±ğ¡¢ÄêÁä¡¢µç»°¡¢»é·ñ¡¢ÊÇ·ñÓĞº¢×Ó¡¢º¢×ÓÄêÁä¡¢ÊÕÈë¡¢Ïû·ÑË®Æ½
-										½üÆÚÆ«ºÃº½Ïß£¬²ÖÎ»Æ«ºÃ£¬×ùÎ»Æ«ºÃ£¬»áÔ±µÈ¼¶£¬Àï³ÌÏà¹Ø¡¢ÓÃ»§³£×¤³ÇÊĞ¡¢³£ÓÃº½Ïß
-										ÓÃ»§¼ÛÖµ·ÖÀà£¬ÓÃ»§»îÔ¾¶È·ÖÀà¡¢ÓÃ»§ÈºÌå·ÖÀà£¨Ñ§ÉúÓÃ»§¡¢ÉÌÂÃ¡¢´ó´úÀí¡¢Ğ¡´úÀí¡¢ÆóÒµĞĞÕş¡¢ÓÃ»§ÈºÌåÓ°Ïì£©£¬¿Í»§¶Ë¶©Æ±ºÍÆäËûÇşµÀ±ÈÀı£¬ĞËÈ¤°®ºÃ ºóÌ¨Êı¾İ+Àë¸ÛÊı¾İ+appĞĞÎªÖĞ¼ä²ãÊı¾İ
-										ÓÃ»§Î¢²© 
-2¡¢ÓªÏú»î¶¯ 				»î¶¯ÊÊÅäÈËÈº×¼È·ÂÊ£¬µã»÷ÂÊ£¬×ª»¯ÂÊ£¬»½ĞÑÂÊ£¬»î¶¯½ğ¶î·ÖÎö£¬»î¶¯¶©µ¥·ÖÎö£¬»î¶¯ÈËÈº·ÖÀà ºóÌ¨Êı¾İ 
-3¡¢appÊı¾İ·ÖÎö 			·ÃÎÊ/Æô¶¯´ÎÊı¡¢·ÃÎÊÊ±³¤¡¢¼¤»îÂÊ¡¢ä¯ÀÀÂ·¾¶¡¢Ò³ÃæÍ£ÁôÊ±¼ä£¨ÊÇ·ñ»¬¶¯£©¡¢Ò³Ãæä¯ÀÀ´ÎÊı
-										ËÑË÷¡¢¶©µ¥¡¢Ö§¸¶¸÷½×¶Î×ª»¯ÂÊ£¬¿Íµ¥¼Û¡¢Á¬´øÂÊ¡¢»ØÍ·ÂÊ¡¢Á÷Ê§ÂÊ¡¢ ¿Í»§¶Ë»îÔ¾ÓÃ»§Êı
-										ÈÈÃÅËÑË÷¡¢º½Ïß£¬ ºóÌ¨Êı¾İ+appÓÃ»§ĞĞÎªÊı¾İ 
-4¡¢appÅóÓÑÈ¦ 				»æÖÆ»áÔ±¼ä¹ØÏµÍ¼Æ× ºóÌ¨Êı¾İ£¨ÂôÆ±¡¢Öµ»úÊı¾İ£©£¬³£ÓÃÁªÏµÈË£¬³£ÓÃ³Ë»úÈË 
-5¡¢Õ¼×ùÆÀ¹À 				·ÖÎö´úÀíÕ¼×ù¶Ôº½Ë¾ÊÛÆ±µÄÓ°Ïì£¬Àë¸ÚÊı¾İ¿´ÉÏ×ùÇé¿ö£¬Öµ»úĞÅÏ¢¿´×ùÎ»·Ö²¼£¬½áºÏ±¾´Îº½°àÕ¼×ùÇé¿ö£¬ÓÃ»§ÕÆ¶ËËÑË÷Çé¿ö£¬¾«È··ÖÎöÕ¼×ù ºóÌ¨Êı¾İ+Àë¸ÛÊı¾İ+»úĞÍ×ùÎ»Êı¾İ 
-6¡¢app¿ÉÍØÕ¹ĞÂ¹¦ÄÜ 	»áÔ±Éı¼¶ÌáĞÑ´Ù½ø³É½»£»´òÔìappÅóÓÑÈ¦£¬Ìá¸ßÉç½»»¯£»¸ù¾İÓÃ»§ËÑË÷ÍÆ¼öº½°à£¨ÍËÆ±£©£»ÓÃ»§Ê±¹â»ú ÊÖ»úÍ¨Ñ¶Â¼ 
+1ã€ç”¨æˆ·ç”»åƒ 				å§“åã€æ€§åˆ«ã€å¹´é¾„ã€ç”µè¯ã€å©šå¦ã€æ˜¯å¦æœ‰å­©å­ã€å­©å­å¹´é¾„ã€æ”¶å…¥ã€æ¶ˆè´¹æ°´å¹³
+										è¿‘æœŸåå¥½èˆªçº¿ï¼Œä»“ä½åå¥½ï¼Œåº§ä½åå¥½ï¼Œä¼šå‘˜ç­‰çº§ï¼Œé‡Œç¨‹ç›¸å…³ã€ç”¨æˆ·å¸¸é©»åŸå¸‚ã€å¸¸ç”¨èˆªçº¿
+										ç”¨æˆ·ä»·å€¼åˆ†ç±»ï¼Œç”¨æˆ·æ´»è·ƒåº¦åˆ†ç±»ã€ç”¨æˆ·ç¾¤ä½“åˆ†ç±»ï¼ˆå­¦ç”Ÿç”¨æˆ·ã€å•†æ—…ã€å¤§ä»£ç†ã€å°ä»£ç†ã€ä¼ä¸šè¡Œæ”¿ã€ç”¨æˆ·ç¾¤ä½“å½±å“ï¼‰ï¼Œå®¢æˆ·ç«¯è®¢ç¥¨å’Œå…¶ä»–æ¸ é“æ¯”ä¾‹ï¼Œå…´è¶£çˆ±å¥½ åå°æ•°æ®+ç¦»æ¸¯æ•°æ®+appè¡Œä¸ºä¸­é—´å±‚æ•°æ®
+										ç”¨æˆ·å¾®åš 
+2ã€è¥é”€æ´»åŠ¨ 				æ´»åŠ¨é€‚é…äººç¾¤å‡†ç¡®ç‡ï¼Œç‚¹å‡»ç‡ï¼Œè½¬åŒ–ç‡ï¼Œå”¤é†’ç‡ï¼Œæ´»åŠ¨é‡‘é¢åˆ†æï¼Œæ´»åŠ¨è®¢å•åˆ†æï¼Œæ´»åŠ¨äººç¾¤åˆ†ç±» åå°æ•°æ® 
+3ã€appæ•°æ®åˆ†æ 			è®¿é—®/å¯åŠ¨æ¬¡æ•°ã€è®¿é—®æ—¶é•¿ã€æ¿€æ´»ç‡ã€æµè§ˆè·¯å¾„ã€é¡µé¢åœç•™æ—¶é—´ï¼ˆæ˜¯å¦æ»‘åŠ¨ï¼‰ã€é¡µé¢æµè§ˆæ¬¡æ•°
+										æœç´¢ã€è®¢å•ã€æ”¯ä»˜å„é˜¶æ®µè½¬åŒ–ç‡ï¼Œå®¢å•ä»·ã€è¿å¸¦ç‡ã€å›å¤´ç‡ã€æµå¤±ç‡ã€ å®¢æˆ·ç«¯æ´»è·ƒç”¨æˆ·æ•°
+										çƒ­é—¨æœç´¢ã€èˆªçº¿ï¼Œ åå°æ•°æ®+appç”¨æˆ·è¡Œä¸ºæ•°æ® 
+4ã€appæœ‹å‹åœˆ 				ç»˜åˆ¶ä¼šå‘˜é—´å…³ç³»å›¾è°± åå°æ•°æ®ï¼ˆå–ç¥¨ã€å€¼æœºæ•°æ®ï¼‰ï¼Œå¸¸ç”¨è”ç³»äººï¼Œå¸¸ç”¨ä¹˜æœºäºº 
+5ã€å åº§è¯„ä¼° 				åˆ†æä»£ç†å åº§å¯¹èˆªå¸å”®ç¥¨çš„å½±å“ï¼Œç¦»å²—æ•°æ®çœ‹ä¸Šåº§æƒ…å†µï¼Œå€¼æœºä¿¡æ¯çœ‹åº§ä½åˆ†å¸ƒï¼Œç»“åˆæœ¬æ¬¡èˆªç­å åº§æƒ…å†µï¼Œç”¨æˆ·æŒç«¯æœç´¢æƒ…å†µï¼Œç²¾ç¡®åˆ†æå åº§ åå°æ•°æ®+ç¦»æ¸¯æ•°æ®+æœºå‹åº§ä½æ•°æ® 
+6ã€appå¯æ‹“å±•æ–°åŠŸèƒ½ 	ä¼šå‘˜å‡çº§æé†’ä¿ƒè¿›æˆäº¤ï¼›æ‰“é€ appæœ‹å‹åœˆï¼Œæé«˜ç¤¾äº¤åŒ–ï¼›æ ¹æ®ç”¨æˆ·æœç´¢æ¨èèˆªç­ï¼ˆé€€ç¥¨ï¼‰ï¼›ç”¨æˆ·æ—¶å…‰æœº æ‰‹æœºé€šè®¯å½• 
 
 ================================================================================================
 
 
 
-================================   Êı¾İ¿âÏà¹Ø  ================================
+================================   æ•°æ®åº“ç›¸å…³  ================================
 
-º½¿ÕÊı¾İ¿â ÓÃ»§Ãû¿ÚÁî£º b2c_owner_user/b2c_owner_user
-Ä¿Ç°Êı¾İ»¹Ã»ÓĞ½øĞĞÍÑÃô´¦Àí£¬Çë´ó¼Ò½÷É÷Ê¹ÓÃºÍ´«²¥
+èˆªç©ºæ•°æ®åº“ ç”¨æˆ·åå£ä»¤ï¼š b2c_owner_user/b2c_owner_user
+ç›®å‰æ•°æ®è¿˜æ²¡æœ‰è¿›è¡Œè„±æ•å¤„ç†ï¼Œè¯·å¤§å®¶è°¨æ…ä½¿ç”¨å’Œä¼ æ’­
 lhytbill = 
 (DESCRIPTION = 
 (ADDRESS = (PROTOCOL = TCP)(HOST = 10.4.120.50)(PORT = 1621)) 
@@ -118,17 +109,17 @@ lhytbill =
 ) 
 
 select * from  bd_K_Means_t_new;
--- 8.4 - µ±Ç°ÈÕÆÚµÄ ÔÂÊı
+-- 8.4 - å½“å‰æ—¥æœŸçš„ æœˆæ•°
 select user_id,(L-32.4652631578947)/1.92,(f-2.85642105263158)/5.44,m,c from  bd_k_means_t;
 -- 2016/12/5
---ÓÃÓÚ¾ÛÀà·ÖÀàµÄÊı¾İ±í
+--ç”¨äºèšç±»åˆ†ç±»çš„æ•°æ®è¡¨
 bb_user_k_means_full
-select * from bb_user_k_means_full --×îĞÂµÄÈ«Á¿Êı¾İ
-USER_ID£¬
-LÈëÍøÊ±¼ä£¬´ó=ÈëÍøÔç
-F·ÉĞĞ´ÎÊı£¬
-R×î½üÒ»´Î·ÉĞĞµ½ÏÖÔÚµÄÊ±¼ä£¬Ğ¡=×î½ü·É¹ı
+select * from bb_user_k_means_full --æœ€æ–°çš„å…¨é‡æ•°æ®
+USER_IDï¼Œ
+Lå…¥ç½‘æ—¶é—´ï¼Œå¤§=å…¥ç½‘æ—©
+Fé£è¡Œæ¬¡æ•°ï¼Œ
+Ræœ€è¿‘ä¸€æ¬¡é£è¡Œåˆ°ç°åœ¨çš„æ—¶é—´ï¼Œå°=æœ€è¿‘é£è¿‡
 
 ================================================================================================
 
-´ÊÔÆµØÖ·£ºhttp://gallery.echartsjs.com/editor.html?c=xrJkX5nFIg
+è¯äº‘åœ°å€ï¼šhttp://gallery.echartsjs.com/editor.html?c=xrJkX5nFIg
