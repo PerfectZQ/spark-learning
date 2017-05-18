@@ -1,0 +1,255 @@
+﻿
+==========================================================================================
+
+# 作业提交
+	
+	# spark各种模式下的提交方式以及配置参数说明
+		
+		1、local模式下的提交模板
+			SPARK_HOME/bin/spark-submit \ # 执行spark-submit脚本
+			--class com.neusoft.client.xxxxxxxx \ # 指定提交jar包的主类
+			--master local[4] \ # 4核cpu
+			/usr/zhangqiang/xxxx.jar # jar包路径，对于Python应用，在此位置传入一个.py文件并且以-py-files的方式搜索路径下加入Python.zip、.egg、.py文件
+			
+		2、standalone模式提交模板
+			spark-submit \ # 在环境变量中配置了SPARK_HOME/bin后就可以直接调用此脚本
+			--class com.neusoft.SimpleApp \
+			--master spark://10.4.120.83:7077 \ # spark集群master的地址
+			--executor-memory 2G \	# 每个executor的内存大小
+			--total-executor-cores 10 \ # 一个executor最多10个核？？
+			/usr/zhangqiang/xxxx.jar
+		
+		3、yarn模式提交模板	 # 与standalone一一对应
+			spark-submit \
+			--class com.neusoft.SimpleApp \
+			--master yarn \ # 默认是client模式，该集群的位置可以在HADOOP_CONF_DIR变量中找到
+			--executor-memory 2G \
+			--num-executors 10 \
+			/usr/zhangqiang/xxxx.jar
+			
+	# 提交到yarn，默认以client模式提交
+		spark-submit --master yarn --class com.neusoft.client.Client --jars /usr/zhangqiang/mongo-java-driver-3.2.2.jar,/usr/zhangqiang/ojdbc14.jar /usr/zhangqiang/smarket-remoud.jar
+		# 客户端方式（默认），但是这种方式在2.0被弃用了
+		spark-submit --master yarn-client ...
+		# 正确的客户端提交方式
+		spark-submit --master yarn --deploy-mode client ...
+		# 集群模式提交
+		spark-submit --master yarn --deploy-mode cluster ...
+	
+	# 客户端模式和集群模式的最主要的区别：
+	
+			客户端模式比较适合开发调试，因为它是在同一物理位置（即同一网关）的服务器上提交应用程序，Driver直接在用户的spark-submit进程中启动，应用程序的
+		输入和输出连接到控制台，能够快速的看到application的输出，比较适合开发和测试
+			如果应用程序是在远离Worker节点的某台机器上提交的，一般使用Cluster模式，这样可以使Drivers和Executors之间的网络延迟最小化，比较适合生产环境。
+			从深层次讲，他们的区别就是Application Master进程的区别，yarn-cluster模式下，driver运行在am（application master）中，他（driver）负责向yarn申请资源，并
+		监督作业的运行状况，当用户提交了作业之后就可以关掉client了，作业会继续在yarn上运行。而client模式下am仅仅向yarn请求executor。client会和请求的container
+		通信来调度他们的工作，也就是说不能关掉client。
+			总结：			
+			client模式下，am向yarn请求资源，client进行监督调度，所以spark yarn-client模式的配置都是以spark.am开头
+			cluster模式下，driver向yarn请求资源，并监督作业运行，所以spark yarn-cluster模式的配置以spark.driver开头
+			
+		注：目前stand alone、mesos集群模式和python编写的应用不支持cluster模式！
+		
+		附：cluster模式的日志是下面这个样子的。
+		
+		17/04/07 18:27:10 INFO yarn.Client: Application report for application_1491557185266_0001 (state: RUNNING)
+		17/04/07 18:27:11 INFO yarn.Client: Application report for application_1491557185266_0001 (state: RUNNING)
+		17/04/07 18:27:12 INFO yarn.Client: Application report for application_1491557185266_0001 (state: RUNNING)
+		17/04/07 18:27:13 INFO yarn.Client: Application report for application_1491557185266_0001 (state: RUNNING)
+		17/04/07 18:27:14 INFO yarn.Client: Application report for application_1491557185266_0001 (state: RUNNING)
+		17/04/07 18:27:15 INFO yarn.Client: Application report for application_1491557185266_0001 (state: RUNNING)
+
+	
+	
+		
+# Spark Configuration
+	
+	spark.driver.cores	1	# Number of cores to use for the driver process, only in cluster mode.
+	
+	# 设置executor使用的cpu数 和executors实例的数（spark.executor.instances）
+	spark-submit --master yarn --deploy-mode client --executor-cores 6 --num-executors 6 --class com.neusoft.client.Client  /usr/zhangqiang/smarket-remould.jar 
+	
+	# reduce task 数目不合适
+	# 调整分区数，设置为core数目的2-3倍，太少运行缓慢或者单个任务太大导致内存不足；数量太多，造成任务太小，增加启动任务的开销
+	# 因此需要合理的修改reduce task的数量
+	spark.default.parallelism 
+	
+	# shuffle io 磁盘时间长
+	# 设置多个磁盘，并且设置io最快的磁盘，通过增加IO来优化shuffle性能
+	spark.local.dir
+	
+	# map/reduce数量大，造成shuffle小文件的数目较多，设置下列参数来合并shuffle中间文件，此时文件的数目为reduce tasks的数目
+	spark.shuffle.consolidateFiles true
+	
+	# 序列化时间长、结果大
+	# spark默认使用JDK自带的ObjetcOutputStream，这种方式产生的结果大、cpu处理时间长
+	# 另外如果结果本身就很大，那就只能使用广播变量了，结果是运行变缓慢？
+	spark.serializer  org.apache.spark.serializer.KeyoSerializer
+	
+	# 单条记录消耗大
+	# mapPartition是对每个partition进行计算，而map是对partition中的每条记录进行计算
+	map -> mapPartition
+
+	# collect输出大量结果时速度慢
+	# collect的源码是把所有的结果以Array形式放在内存中，可以直接输出到分布式文件系统（hdfs）然后查看文件系统中的内容
+	
+	# 任务执行速度倾斜
+	# 如果发生数据倾斜，一般是因为partition的key取得不好，可以考虑其他的处理方式，并在中间加上aggregation操作
+	# 如果是worker倾斜，例如某些worker上的executor执行缓慢，可以通过设置下面的参数将那些持续缓慢的节点去掉
+	spark.speculation=true
+	
+	# 通过多步骤的RDD操作后有很多空任务或者小任务产生
+	# 使用coalesce或者repartition去减少RDD中的partition数
+	
+	# spark Streaming 吞吐量不高
+	spark.streaming.concurrentJobs
+	
+	# spark streaming 运行速度突然下降，经常会有任务延迟和阻塞
+	# 这是因为设置job启动interval的时间间隔太短了，导致每次job在指定的时间无法正常执行完成，换句话说就是创建的windows窗口时间间隔太密集了
+	
+	
+==========================================================================================		
+
+
+================================  异常处理记录  ================================
+
+# spark程序运行空指针异常的原因：
+
+	1.嵌套使用了RDD操作，比如在一个RDD map中又对另一个RDD进行了map操作。主要原因在于spark不支持RDD的嵌套操作。
+	2.在RDD操作中引用了object非原始类型(非int long等简单类型)的成员变量。貌似是由于object的成员变量默认是无法序列化的。解决方法：可以先将成员变量赋值给一个临时变量，然后使用该临时变量即可
+	3.spark 2.0.0对kryo序列化的依赖有bug，到SPARK_HOME/conf/spark-defaults.conf
+		将默认： spark.serializer     org.apache.spark.serializer.KryoSerializer
+		改为：	 spark.serializer 		org.apache.spark.serializer.JavaSerializer
+	
+# java.io.NotSerializableException: org.apache.spark.SparkContext
+sparkContext对象是不能被序列化的，sparkContext不可以出现在map函数中
+
+# object not serializable(class:org.apache.hadoop.hbase.io.ImmutableBytesWritable)
+# Spark操作HBase返回的是 RDD[ImmutableWritable,Result]类型，当在集群上对此RDD进行操作的时候。（比如join），就会产生磁异常
+# 因为org.apache.hadoop.hbase.io.ImmutableBytesWritable和org.apache.hadoop.hbase.client.Result并没有实现java.io.Serializable接口
+# 解决方式：
+	 1、手动设置如何序列化ImmutableWritable类
+	  SparkConf.set("spark.serializer","org.apache.spark.serializer.KryoSerializer")
+	  SparkConf.registerKryoClasses(Array(classOf[org.apache.hadoop.hbase.io.ImmutableBytesWritable]))
+	 2、将ImmutableWritable转换成其他可序列化的类
+	  将其中的数据抽取出来放在可以序列化的类中，比如String或者数组
+  
+  
+# 2017/3/1
+# 使用 Spark ML 决策树构建 DataFrame 的时候出现下面的异常
+java.lang.IllegalArgumentException: requirement failed: Column features must be of type org.apache.spark.ml.linalg.VectorUDT@3bfc3ba7 but was actually org.apache.spark.mllib.linalg.VectorUDT@f71b0bce.
+# 解决办法：
+	将import org.apache.spark.mllib.linalg.Vectors 改为 import org.apache.spark.ml.linalg.Vectors
+
+
+# 2017/3/1
+# 运行 Spark ML 决策树的时候出现 java.lang.OutOfMemoryError: PermGen space （永生代的内存溢出）
+# 解决方法：
+	在IDEA的run configuration中添加VM options  -XX:PermSize=128m
+# 原因：
+	PermGen space用于存放Class和Meta的信息,Class在被 Load的时候被放入PermGen space区域，它和和存放Instance的Heap区域
+不同,GC(Garbage Collection)不会在主程序运行期对PermGen space进行清理，所以如果你的APP会LOAD很多CLASS的话,就很可能
+出现PermGen space错误。这种错误常见在web服务器对JSP进行pre compile的时候。
+# 改正方法：
+	-Xms256m -Xmx256m -XX:MaxNewSize=256m -XX:MaxPermSize=256m 
+
+================================================================================================
+
+================================================= Spark 1.x 爆内存相关问题汇总及解决 ===============================================
+
+# OOM (Out of memory)
+
+复制代码
+# 包括GC Overhead limit
+java.lang.OutOfMemoryError 
+
+# on yarn
+org.apache.hadoop.yarn.server.nodemanager.containermanager.monitor.ContainersMonitorImpl  - Container [<edited>] is running beyond physical memory limits. Current usage: 18.0 GB of 18 GB physical memory used; 19.4 GB of 37.8 GB virtual memory used. Killing container.
+
+Container exit code: 137
+Task process exit with nonzero status of 137.
+复制代码
+
+除了 exit code 137 外其它OOM提示都很明显，yarn container 137退出码按照SO的大神说：“Exit code 137 is a typical sign of the infamous OOM killer.”
+
+解决方法：
+
+加 executor 内存（spark.executor.memory），需注意on yarn时进程是按最小container memory的整数倍分配的。
+优化程序内存占用
+设置StorageLevel 到 DISK 或 MEMORY AND DISK，要注意persist只在action执行才生效，所以建议先count或isEmpty一下触发persist，然后再去做自己的flatMap/foreach等业务操作
+Ref: hadoop-streaming-job-failure-task-process-exit-with-nonzero-status-of-137
+
+Shuffle Read OOM
+
+复制代码
+org.apache.spark.shuffle.MetadataFetchFailedException: Missing an output location for shuffle 0
+
+org.apache.spark.shuffle.FetchFailedException: Failed to connect to ip-xxxxxxxx
+
+org.apache.spark.shuffle.FetchFailedException: Error in opening FileSegmentManagedBuffer
+
+java.io.FileNotFoundException of shuffle files in HDFS/S3
+复制代码
+ 
+
+以上皆为可能的报错,大致原因是shuffle后的executor读取数据超出了内存限制，然后挂了并且清除了相关的中间临时文件，其他的executor在尝试与其进行数据沟通时，要么executor丢失，要么无法读取其写出的shuffle文件等。
+
+如果你的单个shuffle block超过2g，然后又报类似以上列举的错误，你可能遭遇了以下 issue ： 
+
+SPARK-5928 Remote Shuffle Blocks cannot be more than 2 GB 
+
+SPARK-1476 2GB limit in spark for blocks
+解决办法：
+
+调大 repartition 数，减少每个repartition的size
+调大executor内存
+on yarn的需调大 spark.executor.overheadMemory，按SO的说法，需要自己根据实际情况测试调到不报错为止。。
+根据实际情况调整 spark.shuffle 的相关参数。shuffle参数中大多数是关于shuffle write和shuflling的配置，而且基本大多数默认都是比较优的配置了。唯一shuffle read相关的spark.reducer.maxMbInFlight涉及源码参见 Spark技术内幕: Shuffle详解（二） ，因为shuffle fetch阶段是边fetch边处理的，所以适当调小该值有助于改善shuffle阶段的内存占用。 shuffle部分参数说明
+有可能也是你物理内存不够了，增加可用内存吧
+优化数据结构使用，尽量使用原始类型和数组，泛型和对象会造成较大的传输和存储开销。可考虑利用一些高效的序列化方案，比如protostuff。
+Ref：
+what-are-the-likely-causes-of-org-apache-spark-shuffle-metadatafetchfailedexcept
+fetchfailedexception-or-metadatafetchfailedexception-when-processing-big-data-set
+
+Streaming OOM
+
+java.lang.Exception: Could not compute split, block input-0-1412705397200 not found 
+ 
+
+Spark Streaming 中此错误产生原因是streaming产生了堆积，超过了receiver可承受的内存大小，因此旧的未执行的job被删除来去接收新的job。
+
+解决方法：
+
+调大 receiver 内存
+kafka 直接消费没有做rdd transform的可考虑换 direct stream ，防止堆积。
+spark 1.6.x 可采用 spark.streaming.backpressure.enabled 机制回压，控制接收速率，防止爆内存。SparkConf设置 spark.streaming.backpressure.enabled=true, spark.streaming.backpressure.pid.minrate=0.001
+Ref: 
+
+Spark Streaming : Could not compute split, block not found
+
+could-not-compute-split-block-not-found
+
+Insufficient Physical Memory
+
+There is insufficient memory for the Java Runtime Environment to continue.
+Native memory allocation (malloc) failed to allocate 4088 bytes for AllocateHeap
+An error report file with more information is saved as:
+ 
+
+其实就是没有足够的物理内存去启动这个JVM了，比如你JVM申请5g，实际只剩下4g可用的物理内存，就会报错，然后jvm启动失败进程退出。
+
+解决方法：
+
+加物理内存
+优化程序和数据结构，调低jvm内存需求
+kill掉其他占用系统内存进程释放可用内存
+问题：这里的可用内存包不包括操作系统cache的内存呢？ （free -m 可查看OS的free和cached内存）
+
+Ref : insufficient-memory-for-the-java-runtime-environment-message-in-eclipse
+
+
+其实以上的很多解决办法基本是OOM大多数问题通用的，比如持久化、内存调大、数据结构优化。
+
+如果以上问题还不能解决，请参考：http://spark.apache.org/docs/latest/tuning.html 中的 Memory Tuning部分
+
+=============================================================================================================================================

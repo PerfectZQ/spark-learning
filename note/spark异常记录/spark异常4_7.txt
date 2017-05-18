@@ -1,0 +1,368 @@
+17/04/07 15:34:16 INFO zookeeper.ZooKeeper: Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+17/04/07 15:34:16 INFO zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/tmp
+17/04/07 15:34:16 INFO zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
+17/04/07 15:34:16 INFO zookeeper.ZooKeeper: Client environment:os.name=Linux
+17/04/07 15:34:16 INFO zookeeper.ZooKeeper: Client environment:os.arch=amd64
+17/04/07 15:34:16 INFO zookeeper.ZooKeeper: Client environment:os.version=2.6.32-642.el6.x86_64
+17/04/07 15:34:16 INFO zookeeper.ZooKeeper: Client environment:user.name=neu
+17/04/07 15:34:16 INFO zookeeper.ZooKeeper: Client environment:user.home=/home/neu
+17/04/07 15:34:16 INFO zookeeper.ZooKeeper: Client environment:user.dir=/home/neu
+17/04/07 15:34:16 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=s12181:2181,s12191:2181,s12192:2181 sessionTimeout=60000 watcher=hconnection-0x48c612c30x0, quorum=s12181:2181,s12191:2181,s12192:2181, baseZNode=/hbase
+17/04/07 15:34:16 INFO zookeeper.ClientCnxn: Opening socket connection to server s12191/10.4.121.91:2181. Will not attempt to authenticate using SASL (unknown error)
+17/04/07 15:34:16 INFO zookeeper.ClientCnxn: Socket connection established, initiating session, client: /10.4.120.83:57665, server: s12191/10.4.121.91:2181
+17/04/07 15:34:16 INFO zookeeper.ClientCnxn: Session establishment complete on server s12191/10.4.121.91:2181, sessionid = 0x25b4058faa10eeb, negotiated timeout = 60000
+17/04/07 15:34:16 INFO util.RegionSizeCalculator: Calculating region sizes for table "ci_user_KUWL3pPy".
+17/04/07 15:34:17 INFO client.ConnectionManager$HConnectionImplementation: Closing master protocol: MasterService
+17/04/07 15:34:17 INFO client.ConnectionManager$HConnectionImplementation: Closing zookeeper sessionid=0x25b4058faa10eeb
+17/04/07 15:34:17 INFO zookeeper.ZooKeeper: Session: 0x25b4058faa10eeb closed
+17/04/07 15:34:17 INFO zookeeper.ClientCnxn: EventThread shut down
+17/04/07 15:34:17 INFO zookeeper.RecoverableZooKeeper: Process identifier=hconnection-0x7cdc4b1f connecting to ZooKeeper ensemble=s12181:2181,s12191:2181,s12192:2181
+17/04/07 15:34:17 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=s12181:2181,s12191:2181,s12192:2181 sessionTimeout=60000 watcher=hconnection-0x7cdc4b1f0x0, quorum=s12181:2181,s12191:2181,s12192:2181, baseZNode=/hbase
+17/04/07 15:34:17 INFO zookeeper.ClientCnxn: Opening socket connection to server s12191/10.4.121.91:2181. Will not attempt to authenticate using SASL (unknown error)
+17/04/07 15:34:17 INFO zookeeper.ClientCnxn: Socket connection established, initiating session, client: /10.4.120.83:57668, server: s12191/10.4.121.91:2181
+17/04/07 15:34:17 INFO zookeeper.ClientCnxn: Session establishment complete on server s12191/10.4.121.91:2181, sessionid = 0x25b4058faa10eec, negotiated timeout = 60000
+17/04/07 15:34:17 INFO util.RegionSizeCalculator: Calculating region sizes for table "ci_result_KUWL3pPy".
+17/04/07 15:34:17 INFO client.ConnectionManager$HConnectionImplementation: Closing master protocol: MasterService
+17/04/07 15:34:17 INFO client.ConnectionManager$HConnectionImplementation: Closing zookeeper sessionid=0x25b4058faa10eec
+17/04/07 15:34:17 INFO zookeeper.ZooKeeper: Session: 0x25b4058faa10eec closed
+17/04/07 15:34:17 INFO zookeeper.ClientCnxn: EventThread shut down
+17/04/07 15:34:17 INFO Configuration.deprecation: mapred.tip.id is deprecated. Instead, use mapreduce.task.id
+17/04/07 15:34:17 INFO Configuration.deprecation: mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id
+17/04/07 15:34:17 INFO Configuration.deprecation: mapred.task.is.map is deprecated. Instead, use mapreduce.task.ismap
+17/04/07 15:34:17 INFO Configuration.deprecation: mapred.task.partition is deprecated. Instead, use mapreduce.task.partition
+17/04/07 15:34:17 INFO Configuration.deprecation: mapred.job.id is deprecated. Instead, use mapreduce.job.id
+17/04/07 15:34:17 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 1
+17/04/07 15:34:17 WARN output.FileOutputCommitter: Output Path is null in setupJob()
+17/04/07 15:34:17 INFO spark.SparkContext: Starting job: saveAsHadoopDataset at Client.scala:117
+17/04/07 15:34:17 INFO scheduler.DAGScheduler: Registering RDD 4 (union at Client.scala:85)
+17/04/07 15:34:17 INFO scheduler.DAGScheduler: Got job 0 (saveAsHadoopDataset at Client.scala:117) with 6 output partitions
+17/04/07 15:34:17 INFO scheduler.DAGScheduler: Final stage: ResultStage 1 (saveAsHadoopDataset at Client.scala:117)
+17/04/07 15:34:17 INFO scheduler.DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
+17/04/07 15:34:17 INFO scheduler.DAGScheduler: Missing parents: List(ShuffleMapStage 0)
+17/04/07 15:34:17 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 0 (UnionRDD[4] at union at Client.scala:85), which has no missing parents
+17/04/07 15:34:17 INFO memory.MemoryStore: Block broadcast_2 stored as values in memory (estimated size 5.6 KB, free 365.8 MB)
+17/04/07 15:34:17 INFO memory.MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 3.1 KB, free 365.8 MB)
+17/04/07 15:34:17 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.4.120.83:42947 (size: 3.1 KB, free: 366.2 MB)
+17/04/07 15:34:17 INFO spark.SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1012
+17/04/07 15:34:17 INFO scheduler.DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 0 (UnionRDD[4] at union at Client.scala:85)
+17/04/07 15:34:17 INFO cluster.YarnScheduler: Adding task set 0.0 with 6 tasks
+17/04/07 15:34:19 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.4.121.92:32789) with ID 1
+17/04/07 15:34:19 INFO scheduler.TaskSetManager: Starting task 2.0 in stage 0.0 (TID 0, s12192, partition 2, NODE_LOCAL, 5653 bytes)
+17/04/07 15:34:20 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 0 on executor id: 1 hostname: s12192.
+17/04/07 15:34:20 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.4.121.91:34939) with ID 2
+17/04/07 15:34:20 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 0.0 (TID 1, s12191, partition 0, NODE_LOCAL, 5621 bytes)
+17/04/07 15:34:20 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 1 on executor id: 2 hostname: s12191.
+17/04/07 15:34:20 INFO storage.BlockManagerMasterEndpoint: Registering block manager s12192:36466 with 366.3 MB RAM, BlockManagerId(1, s12192, 36466)
+17/04/07 15:34:20 INFO storage.BlockManagerMasterEndpoint: Registering block manager s12191:42271 with 366.3 MB RAM, BlockManagerId(2, s12191, 42271)
+17/04/07 15:34:20 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on s12192:36466 (size: 3.1 KB, free: 366.3 MB)
+17/04/07 15:34:20 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on s12191:42271 (size: 3.1 KB, free: 366.3 MB)
+17/04/07 15:34:21 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on s12192:36466 (size: 30.0 KB, free: 366.3 MB)
+17/04/07 15:34:21 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on s12191:42271 (size: 30.0 KB, free: 366.3 MB)
+17/04/07 15:35:45 INFO scheduler.TaskSetManager: Starting task 3.0 in stage 0.0 (TID 2, s12192, partition 3, NODE_LOCAL, 5653 bytes)
+17/04/07 15:35:45 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 2 on executor id: 1 hostname: s12192.
+17/04/07 15:35:45 INFO scheduler.TaskSetManager: Finished task 2.0 in stage 0.0 (TID 0) in 85449 ms on s12192 (1/6)
+17/04/07 15:36:54 INFO scheduler.TaskSetManager: Starting task 4.0 in stage 0.0 (TID 3, s12191, partition 4, NODE_LOCAL, 5621 bytes)
+17/04/07 15:36:54 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 3 on executor id: 2 hostname: s12191.
+17/04/07 15:36:54 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 0.0 (TID 1) in 154732 ms on s12191 (2/6)
+17/04/07 15:38:14 INFO scheduler.TaskSetManager: Starting task 5.0 in stage 0.0 (TID 4, s12192, partition 5, NODE_LOCAL, 5587 bytes)
+17/04/07 15:38:14 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 4 on executor id: 1 hostname: s12192.
+17/04/07 15:38:14 INFO scheduler.TaskSetManager: Finished task 3.0 in stage 0.0 (TID 2) in 148885 ms on s12192 (3/6)
+17/04/07 15:38:14 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on s12192:36466 (size: 30.1 KB, free: 366.2 MB)
+17/04/07 15:38:14 INFO scheduler.TaskSetManager: Finished task 5.0 in stage 0.0 (TID 4) in 255 ms on s12192 (4/6)
+17/04/07 15:38:18 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 0.0 (TID 5, s12192, partition 1, RACK_LOCAL, 5653 bytes)
+17/04/07 15:38:18 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 5 on executor id: 1 hostname: s12192.
+17/04/07 15:39:15 INFO scheduler.TaskSetManager: Finished task 4.0 in stage 0.0 (TID 3) in 140847 ms on s12191 (5/6)
+17/04/07 15:41:26 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 0.0 (TID 5) in 188328 ms on s12192 (6/6)
+17/04/07 15:41:26 INFO cluster.YarnScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+17/04/07 15:41:26 INFO scheduler.DAGScheduler: ShuffleMapStage 0 (union at Client.scala:85) finished in 428.603 s
+17/04/07 15:41:26 INFO scheduler.DAGScheduler: looking for newly runnable stages
+17/04/07 15:41:26 INFO scheduler.DAGScheduler: running: Set()
+17/04/07 15:41:26 INFO scheduler.DAGScheduler: waiting: Set(ResultStage 1)
+17/04/07 15:41:26 INFO scheduler.DAGScheduler: failed: Set()
+17/04/07 15:41:26 INFO scheduler.DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[6] at flatMap at Client.scala:89), which has no missing parents
+17/04/07 15:41:26 INFO memory.MemoryStore: Block broadcast_3 stored as values in memory (estimated size 91.6 KB, free 365.7 MB)
+17/04/07 15:41:26 INFO memory.MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 34.9 KB, free 365.6 MB)
+17/04/07 15:41:26 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on 10.4.120.83:42947 (size: 34.9 KB, free: 366.2 MB)
+17/04/07 15:41:26 INFO spark.SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1012
+17/04/07 15:41:26 INFO scheduler.DAGScheduler: Submitting 6 missing tasks from ResultStage 1 (MapPartitionsRDD[6] at flatMap at Client.scala:89)
+17/04/07 15:41:26 INFO cluster.YarnScheduler: Adding task set 1.0 with 6 tasks
+17/04/07 15:41:26 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 1.0 (TID 6, s12192, partition 0, NODE_LOCAL, 5241 bytes)
+17/04/07 15:41:26 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 1.0 (TID 7, s12191, partition 1, NODE_LOCAL, 5241 bytes)
+17/04/07 15:41:26 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 6 on executor id: 1 hostname: s12192.
+17/04/07 15:41:26 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 7 on executor id: 2 hostname: s12191.
+17/04/07 15:41:26 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on s12192:36466 (size: 34.9 KB, free: 366.2 MB)
+17/04/07 15:41:26 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on s12191:42271 (size: 34.9 KB, free: 366.2 MB)
+17/04/07 15:41:26 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.4.121.92:32789
+17/04/07 15:41:26 INFO spark.MapOutputTrackerMaster: Size of output statuses for shuffle 0 is 170 bytes
+17/04/07 15:41:26 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.4.121.91:34939
+17/04/07 15:42:07 INFO storage.BlockManagerInfo: Removed broadcast_2_piece0 on 10.4.120.83:42947 in memory (size: 3.1 KB, free: 366.2 MB)
+17/04/07 15:42:07 INFO storage.BlockManagerInfo: Removed broadcast_2_piece0 on s12191:42271 in memory (size: 3.1 KB, free: 366.2 MB)
+17/04/07 15:42:07 INFO storage.BlockManagerInfo: Removed broadcast_2_piece0 on s12192:36466 in memory (size: 3.1 KB, free: 366.2 MB)
+17/04/07 15:42:32 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Disabling executor 2.
+17/04/07 15:42:32 INFO scheduler.DAGScheduler: Executor lost: 2 (epoch 1)
+17/04/07 15:42:32 INFO storage.BlockManagerMasterEndpoint: Trying to remove executor 2 from BlockManagerMaster.
+17/04/07 15:42:32 INFO storage.BlockManagerMasterEndpoint: Removing block manager BlockManagerId(2, s12191, 42271)
+17/04/07 15:42:32 INFO storage.BlockManagerMaster: Removed 2 successfully in removeExecutor
+17/04/07 15:42:32 INFO scheduler.DAGScheduler: Shuffle files lost for executor: 2 (epoch 1)
+17/04/07 15:42:32 INFO scheduler.ShuffleMapStage: ShuffleMapStage 0 is now unavailable on executor 2 (4/6, false)
+17/04/07 15:42:32 ERROR cluster.YarnScheduler: Lost executor 2 on s12191: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:42:32 WARN cluster.YarnSchedulerBackend$YarnSchedulerEndpoint: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:42:32 WARN scheduler.TaskSetManager: Lost task 1.0 in stage 1.0 (TID 7, s12191): ExecutorLostFailure (executor 2 exited caused by one of the running tasks) Reason: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:42:32 INFO storage.BlockManagerMasterEndpoint: Trying to remove executor 2 from BlockManagerMaster.
+17/04/07 15:42:32 INFO storage.BlockManagerMaster: Removal of executor 2 requested
+17/04/07 15:42:32 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Asked to remove non-existent executor 2
+17/04/07 15:42:32 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Disabling executor 1.
+17/04/07 15:42:32 INFO scheduler.DAGScheduler: Executor lost: 1 (epoch 2)
+17/04/07 15:42:32 INFO storage.BlockManagerMasterEndpoint: Trying to remove executor 1 from BlockManagerMaster.
+17/04/07 15:42:32 INFO storage.BlockManagerMasterEndpoint: Removing block manager BlockManagerId(1, s12192, 36466)
+17/04/07 15:42:32 INFO storage.BlockManagerMaster: Removed 1 successfully in removeExecutor
+17/04/07 15:42:32 INFO scheduler.DAGScheduler: Shuffle files lost for executor: 1 (epoch 2)
+17/04/07 15:42:32 INFO scheduler.ShuffleMapStage: ShuffleMapStage 0 is now unavailable on executor 1 (0/6, false)
+17/04/07 15:42:32 ERROR cluster.YarnScheduler: Lost executor 1 on s12192: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:42:32 WARN scheduler.TaskSetManager: Lost task 0.0 in stage 1.0 (TID 6, s12192): ExecutorLostFailure (executor 1 exited caused by one of the running tasks) Reason: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:42:32 WARN cluster.YarnSchedulerBackend$YarnSchedulerEndpoint: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:42:32 INFO storage.BlockManagerMaster: Removal of executor 1 requested
+17/04/07 15:42:32 INFO storage.BlockManagerMasterEndpoint: Trying to remove executor 1 from BlockManagerMaster.
+17/04/07 15:42:32 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Asked to remove non-existent executor 1
+17/04/07 15:42:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.4.121.92:35614) with ID 3
+17/04/07 15:42:37 INFO scheduler.TaskSetManager: Starting task 0.1 in stage 1.0 (TID 8, s12192, partition 0, NODE_LOCAL, 5241 bytes)
+17/04/07 15:42:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 8 on executor id: 3 hostname: s12192.
+17/04/07 15:42:37 INFO storage.BlockManagerMasterEndpoint: Registering block manager s12192:53154 with 366.3 MB RAM, BlockManagerId(3, s12192, 53154)
+17/04/07 15:42:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.4.121.91:37799) with ID 4
+17/04/07 15:42:37 INFO scheduler.TaskSetManager: Starting task 1.1 in stage 1.0 (TID 9, s12191, partition 1, NODE_LOCAL, 5241 bytes)
+17/04/07 15:42:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 9 on executor id: 4 hostname: s12191.
+17/04/07 15:42:37 INFO storage.BlockManagerMasterEndpoint: Registering block manager s12191:48065 with 366.3 MB RAM, BlockManagerId(4, s12191, 48065)
+17/04/07 15:42:37 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on s12192:53154 (size: 34.9 KB, free: 366.3 MB)
+17/04/07 15:42:38 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on s12191:48065 (size: 34.9 KB, free: 366.3 MB)
+17/04/07 15:42:38 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.4.121.92:35614
+17/04/07 15:42:38 INFO spark.MapOutputTrackerMaster: Size of output statuses for shuffle 0 is 87 bytes
+17/04/07 15:42:38 INFO scheduler.TaskSetManager: Starting task 2.0 in stage 1.0 (TID 10, s12192, partition 2, NODE_LOCAL, 5241 bytes)
+17/04/07 15:42:38 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 10 on executor id: 3 hostname: s12192.
+17/04/07 15:42:38 WARN scheduler.TaskSetManager: Lost task 0.1 in stage 1.0 (TID 8, s12192): FetchFailed(null, shuffleId=0, mapId=-1, reduceId=0, message=
+org.apache.spark.shuffle.MetadataFetchFailedException: Missing an output location for shuffle 0
+	at org.apache.spark.MapOutputTracker$$anonfun$org$apache$spark$MapOutputTracker$$convertMapStatuses$2.apply(MapOutputTracker.scala:695)
+	at org.apache.spark.MapOutputTracker$$anonfun$org$apache$spark$MapOutputTracker$$convertMapStatuses$2.apply(MapOutputTracker.scala:691)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:733)
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:732)
+	at org.apache.spark.MapOutputTracker$.org$apache$spark$MapOutputTracker$$convertMapStatuses(MapOutputTracker.scala:691)
+	at org.apache.spark.MapOutputTracker.getMapSizesByExecutorId(MapOutputTracker.scala:145)
+	at org.apache.spark.shuffle.BlockStoreShuffleReader.read(BlockStoreShuffleReader.scala:49)
+	at org.apache.spark.rdd.ShuffledRDD.compute(ShuffledRDD.scala:109)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+)
+17/04/07 15:42:38 INFO scheduler.TaskSetManager: Task 0.1 in stage 1.0 (TID 8) failed, but another instance of the task has already succeeded, so not re-queuing the task to be re-executed.
+17/04/07 15:42:38 INFO scheduler.DAGScheduler: Marking ResultStage 1 (saveAsHadoopDataset at Client.scala:117) as failed due to a fetch failure from ShuffleMapStage 0 (union at Client.scala:85)
+17/04/07 15:42:38 INFO scheduler.DAGScheduler: ResultStage 1 (saveAsHadoopDataset at Client.scala:117) failed in 71.970 s
+17/04/07 15:42:38 INFO scheduler.DAGScheduler: Resubmitting ShuffleMapStage 0 (union at Client.scala:85) and ResultStage 1 (saveAsHadoopDataset at Client.scala:117) due to fetch failure
+17/04/07 15:42:38 WARN scheduler.TaskSetManager: Lost task 2.0 in stage 1.0 (TID 10, s12192): FetchFailed(null, shuffleId=0, mapId=-1, reduceId=2, message=
+org.apache.spark.shuffle.MetadataFetchFailedException: Missing an output location for shuffle 0
+	at org.apache.spark.MapOutputTracker$$anonfun$org$apache$spark$MapOutputTracker$$convertMapStatuses$2.apply(MapOutputTracker.scala:695)
+	at org.apache.spark.MapOutputTracker$$anonfun$org$apache$spark$MapOutputTracker$$convertMapStatuses$2.apply(MapOutputTracker.scala:691)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:733)
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:732)
+	at org.apache.spark.MapOutputTracker$.org$apache$spark$MapOutputTracker$$convertMapStatuses(MapOutputTracker.scala:691)
+	at org.apache.spark.MapOutputTracker.getMapSizesByExecutorId(MapOutputTracker.scala:145)
+	at org.apache.spark.shuffle.BlockStoreShuffleReader.read(BlockStoreShuffleReader.scala:49)
+	at org.apache.spark.rdd.ShuffledRDD.compute(ShuffledRDD.scala:109)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+)
+17/04/07 15:42:38 INFO scheduler.TaskSetManager: Task 2.0 in stage 1.0 (TID 10) failed, but another instance of the task has already succeeded, so not re-queuing the task to be re-executed.
+17/04/07 15:42:38 INFO scheduler.DAGScheduler: Resubmitting failed stages
+17/04/07 15:42:38 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 0 (UnionRDD[4] at union at Client.scala:85), which has no missing parents
+17/04/07 15:42:38 INFO memory.MemoryStore: Block broadcast_4 stored as values in memory (estimated size 5.6 KB, free 365.7 MB)
+17/04/07 15:42:38 INFO memory.MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 3.1 KB, free 365.6 MB)
+17/04/07 15:42:38 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on 10.4.120.83:42947 (size: 3.1 KB, free: 366.2 MB)
+17/04/07 15:42:38 INFO spark.SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1012
+17/04/07 15:42:38 INFO scheduler.DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 0 (UnionRDD[4] at union at Client.scala:85)
+17/04/07 15:42:38 INFO cluster.YarnScheduler: Adding task set 0.1 with 6 tasks
+17/04/07 15:42:38 INFO scheduler.TaskSetManager: Starting task 2.0 in stage 0.1 (TID 11, s12192, partition 2, NODE_LOCAL, 5653 bytes)
+17/04/07 15:42:38 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 11 on executor id: 3 hostname: s12192.
+17/04/07 15:42:38 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on s12192:53154 (size: 3.1 KB, free: 366.3 MB)
+17/04/07 15:42:38 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on s12192:53154 (size: 30.0 KB, free: 366.2 MB)
+17/04/07 15:42:38 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.4.121.91:37799
+17/04/07 15:42:39 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 0.1 (TID 12, s12191, partition 0, NODE_LOCAL, 5621 bytes)
+17/04/07 15:42:39 WARN scheduler.TaskSetManager: Lost task 1.1 in stage 1.0 (TID 9, s12191): FetchFailed(null, shuffleId=0, mapId=-1, reduceId=1, message=
+org.apache.spark.shuffle.MetadataFetchFailedException: Missing an output location for shuffle 0
+	at org.apache.spark.MapOutputTracker$$anonfun$org$apache$spark$MapOutputTracker$$convertMapStatuses$2.apply(MapOutputTracker.scala:695)
+	at org.apache.spark.MapOutputTracker$$anonfun$org$apache$spark$MapOutputTracker$$convertMapStatuses$2.apply(MapOutputTracker.scala:691)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:733)
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:732)
+	at org.apache.spark.MapOutputTracker$.org$apache$spark$MapOutputTracker$$convertMapStatuses(MapOutputTracker.scala:691)
+	at org.apache.spark.MapOutputTracker.getMapSizesByExecutorId(MapOutputTracker.scala:145)
+	at org.apache.spark.shuffle.BlockStoreShuffleReader.read(BlockStoreShuffleReader.scala:49)
+	at org.apache.spark.rdd.ShuffledRDD.compute(ShuffledRDD.scala:109)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+)
+17/04/07 15:42:39 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 12 on executor id: 4 hostname: s12191.
+17/04/07 15:42:39 INFO scheduler.TaskSetManager: Task 1.1 in stage 1.0 (TID 9) failed, but another instance of the task has already succeeded, so not re-queuing the task to be re-executed.
+17/04/07 15:42:39 INFO cluster.YarnScheduler: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+17/04/07 15:42:39 INFO scheduler.DAGScheduler: Resubmitting ShuffleMapStage 0 (union at Client.scala:85) and ResultStage 1 (saveAsHadoopDataset at Client.scala:117) due to fetch failure
+17/04/07 15:42:39 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on s12191:48065 (size: 3.1 KB, free: 366.3 MB)
+17/04/07 15:42:39 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on s12191:48065 (size: 30.0 KB, free: 366.2 MB)
+17/04/07 15:42:39 INFO scheduler.DAGScheduler: Resubmitting failed stages
+17/04/07 15:43:59 INFO scheduler.TaskSetManager: Starting task 3.0 in stage 0.1 (TID 13, s12192, partition 3, NODE_LOCAL, 5653 bytes)
+17/04/07 15:43:59 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 13 on executor id: 3 hostname: s12192.
+17/04/07 15:43:59 INFO scheduler.TaskSetManager: Finished task 2.0 in stage 0.1 (TID 11) in 80669 ms on s12192 (1/6)
+17/04/07 15:45:18 INFO scheduler.TaskSetManager: Starting task 4.0 in stage 0.1 (TID 14, s12191, partition 4, NODE_LOCAL, 5621 bytes)
+17/04/07 15:45:18 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 14 on executor id: 4 hostname: s12191.
+17/04/07 15:45:18 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 0.1 (TID 12) in 159013 ms on s12191 (2/6)
+17/04/07 15:46:25 INFO scheduler.TaskSetManager: Starting task 5.0 in stage 0.1 (TID 15, s12192, partition 5, NODE_LOCAL, 5587 bytes)
+17/04/07 15:46:25 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 15 on executor id: 3 hostname: s12192.
+17/04/07 15:46:25 INFO scheduler.TaskSetManager: Finished task 3.0 in stage 0.1 (TID 13) in 145956 ms on s12192 (3/6)
+17/04/07 15:46:25 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on s12192:53154 (size: 30.1 KB, free: 366.2 MB)
+17/04/07 15:46:25 INFO scheduler.TaskSetManager: Finished task 5.0 in stage 0.1 (TID 15) in 267 ms on s12192 (4/6)
+17/04/07 15:46:29 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 0.1 (TID 16, s12192, partition 1, RACK_LOCAL, 5653 bytes)
+17/04/07 15:46:29 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 16 on executor id: 3 hostname: s12192.
+17/04/07 15:47:37 INFO scheduler.TaskSetManager: Finished task 4.0 in stage 0.1 (TID 14) in 139492 ms on s12191 (5/6)
+17/04/07 15:49:34 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 0.1 (TID 16) in 185651 ms on s12192 (6/6)
+17/04/07 15:49:34 INFO cluster.YarnScheduler: Removed TaskSet 0.1, whose tasks have all completed, from pool 
+17/04/07 15:49:34 INFO scheduler.DAGScheduler: ShuffleMapStage 0 (union at Client.scala:85) finished in 416.026 s
+17/04/07 15:49:34 INFO scheduler.DAGScheduler: looking for newly runnable stages
+17/04/07 15:49:34 INFO scheduler.DAGScheduler: running: Set()
+17/04/07 15:49:34 INFO scheduler.DAGScheduler: waiting: Set(ResultStage 1)
+17/04/07 15:49:34 INFO scheduler.DAGScheduler: failed: Set()
+17/04/07 15:49:34 INFO scheduler.DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[6] at flatMap at Client.scala:89), which has no missing parents
+17/04/07 15:49:34 INFO memory.MemoryStore: Block broadcast_5 stored as values in memory (estimated size 91.6 KB, free 365.6 MB)
+17/04/07 15:49:34 INFO memory.MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 34.9 KB, free 365.5 MB)
+17/04/07 15:49:34 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on 10.4.120.83:42947 (size: 34.9 KB, free: 366.2 MB)
+17/04/07 15:49:34 INFO spark.SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1012
+17/04/07 15:49:34 INFO scheduler.DAGScheduler: Submitting 6 missing tasks from ResultStage 1 (MapPartitionsRDD[6] at flatMap at Client.scala:89)
+17/04/07 15:49:34 INFO cluster.YarnScheduler: Adding task set 1.1 with 6 tasks
+17/04/07 15:49:34 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 1.1 (TID 17, s12191, partition 0, NODE_LOCAL, 5241 bytes)
+17/04/07 15:49:34 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 1.1 (TID 18, s12192, partition 1, NODE_LOCAL, 5241 bytes)
+17/04/07 15:49:34 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 17 on executor id: 4 hostname: s12191.
+17/04/07 15:49:34 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 18 on executor id: 3 hostname: s12192.
+17/04/07 15:49:34 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on s12192:53154 (size: 34.9 KB, free: 366.2 MB)
+17/04/07 15:49:34 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on s12191:48065 (size: 34.9 KB, free: 366.2 MB)
+17/04/07 15:49:35 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.4.121.92:35614
+17/04/07 15:49:35 INFO spark.MapOutputTrackerMaster: Size of output statuses for shuffle 0 is 170 bytes
+17/04/07 15:49:35 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.4.121.91:37799
+17/04/07 15:50:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Disabling executor 4.
+17/04/07 15:50:37 INFO scheduler.DAGScheduler: Executor lost: 4 (epoch 4)
+17/04/07 15:50:37 INFO storage.BlockManagerMasterEndpoint: Trying to remove executor 4 from BlockManagerMaster.
+17/04/07 15:50:37 INFO storage.BlockManagerMasterEndpoint: Removing block manager BlockManagerId(4, s12191, 48065)
+17/04/07 15:50:37 INFO storage.BlockManagerMaster: Removed 4 successfully in removeExecutor
+17/04/07 15:50:37 INFO scheduler.DAGScheduler: Shuffle files lost for executor: 4 (epoch 4)
+17/04/07 15:50:37 INFO scheduler.ShuffleMapStage: ShuffleMapStage 0 is now unavailable on executor 4 (4/6, false)
+17/04/07 15:50:37 ERROR cluster.YarnScheduler: Lost executor 4 on s12191: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:50:37 WARN scheduler.TaskSetManager: Lost task 0.0 in stage 1.1 (TID 17, s12191): ExecutorLostFailure (executor 4 exited caused by one of the running tasks) Reason: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:50:37 WARN cluster.YarnSchedulerBackend$YarnSchedulerEndpoint: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:50:37 INFO storage.BlockManagerMaster: Removal of executor 4 requested
+17/04/07 15:50:37 INFO storage.BlockManagerMasterEndpoint: Trying to remove executor 4 from BlockManagerMaster.
+17/04/07 15:50:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Asked to remove non-existent executor 4
+17/04/07 15:50:44 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Disabling executor 3.
+17/04/07 15:50:44 INFO scheduler.DAGScheduler: Executor lost: 3 (epoch 5)
+17/04/07 15:50:44 INFO storage.BlockManagerMasterEndpoint: Trying to remove executor 3 from BlockManagerMaster.
+17/04/07 15:50:44 INFO storage.BlockManagerMasterEndpoint: Removing block manager BlockManagerId(3, s12192, 53154)
+17/04/07 15:50:44 INFO storage.BlockManagerMaster: Removed 3 successfully in removeExecutor
+17/04/07 15:50:44 INFO scheduler.DAGScheduler: Shuffle files lost for executor: 3 (epoch 5)
+17/04/07 15:50:44 INFO scheduler.ShuffleMapStage: ShuffleMapStage 0 is now unavailable on executor 3 (0/6, false)
+17/04/07 15:50:44 ERROR cluster.YarnScheduler: Lost executor 3 on s12192: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:50:44 WARN scheduler.TaskSetManager: Lost task 1.0 in stage 1.1 (TID 18, s12192): ExecutorLostFailure (executor 3 exited caused by one of the running tasks) Reason: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:50:44 WARN cluster.YarnSchedulerBackend$YarnSchedulerEndpoint: Container killed by YARN for exceeding memory limits. 1.5 GB of 1.5 GB physical memory used. Consider boosting spark.yarn.executor.memoryOverhead.
+17/04/07 15:50:44 INFO storage.BlockManagerMasterEndpoint: Trying to remove executor 3 from BlockManagerMaster.
+17/04/07 15:50:44 INFO storage.BlockManagerMaster: Removal of executor 3 requested
+17/04/07 15:50:44 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Asked to remove non-existent executor 3
+17/04/07 15:50:45 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.4.121.91:40257) with ID 5
+17/04/07 15:50:45 INFO scheduler.TaskSetManager: Starting task 1.1 in stage 1.1 (TID 19, s12191, partition 1, NODE_LOCAL, 5241 bytes)
+17/04/07 15:50:45 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 19 on executor id: 5 hostname: s12191.
+17/04/07 15:50:45 INFO storage.BlockManagerMasterEndpoint: Registering block manager s12191:33104 with 366.3 MB RAM, BlockManagerId(5, s12191, 33104)
+17/04/07 15:50:45 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on s12191:33104 (size: 34.9 KB, free: 366.3 MB)
+17/04/07 15:50:46 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 10.4.121.91:40257
+17/04/07 15:50:46 INFO spark.MapOutputTrackerMaster: Size of output statuses for shuffle 0 is 87 bytes
+17/04/07 15:50:46 INFO scheduler.TaskSetManager: Starting task 0.1 in stage 1.1 (TID 20, s12191, partition 0, NODE_LOCAL, 5241 bytes)
+17/04/07 15:50:46 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 20 on executor id: 5 hostname: s12191.
+17/04/07 15:50:46 WARN scheduler.TaskSetManager: Lost task 1.1 in stage 1.1 (TID 19, s12191): FetchFailed(null, shuffleId=0, mapId=-1, reduceId=1, message=
+org.apache.spark.shuffle.MetadataFetchFailedException: Missing an output location for shuffle 0
+	at org.apache.spark.MapOutputTracker$$anonfun$org$apache$spark$MapOutputTracker$$convertMapStatuses$2.apply(MapOutputTracker.scala:695)
+	at org.apache.spark.MapOutputTracker$$anonfun$org$apache$spark$MapOutputTracker$$convertMapStatuses$2.apply(MapOutputTracker.scala:691)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:733)
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:732)
+	at org.apache.spark.MapOutputTracker$.org$apache$spark$MapOutputTracker$$convertMapStatuses(MapOutputTracker.scala:691)
+	at org.apache.spark.MapOutputTracker.getMapSizesByExecutorId(MapOutputTracker.scala:145)
+	at org.apache.spark.shuffle.BlockStoreShuffleReader.read(BlockStoreShuffleReader.scala:49)
+	at org.apache.spark.rdd.ShuffledRDD.compute(ShuffledRDD.scala:109)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+)
+17/04/07 15:50:46 INFO scheduler.TaskSetManager: Task 1.1 in stage 1.1 (TID 19) failed, but another instance of the task has already succeeded, so not re-queuing the task to be re-executed.
+17/04/07 15:50:46 INFO scheduler.DAGScheduler: Marking ResultStage 1 (saveAsHadoopDataset at Client.scala:117) as failed due to a fetch failure from ShuffleMapStage 0 (union at Client.scala:85)
+17/04/07 15:50:46 INFO scheduler.DAGScheduler: ResultStage 1 (saveAsHadoopDataset at Client.scala:117) failed in 71.614 s
+17/04/07 15:50:46 INFO scheduler.DAGScheduler: Resubmitting ShuffleMapStage 0 (union at Client.scala:85) and ResultStage 1 (saveAsHadoopDataset at Client.scala:117) due to fetch failure
+17/04/07 15:50:46 INFO storage.BlockManagerInfo: Removed broadcast_4_piece0 on 10.4.120.83:42947 in memory (size: 3.1 KB, free: 366.2 MB)
+17/04/07 15:50:46 WARN scheduler.TaskSetManager: Lost task 0.1 in stage 1.1 (TID 20, s12191): FetchFailed(null, shuffleId=0, mapId=-1, reduceId=0, message=
+org.apache.spark.shuffle.MetadataFetchFailedException: Missing an output location for shuffle 0
+	at org.apache.spark.MapOutputTracker$$anonfun$org$apache$spark$MapOutputTracker$$convertMapStatuses$2.apply(MapOutputTracker.scala:695)
+	at org.apache.spark.MapOutputTracker$$anonfun$org$apache$spark$MapOutputTracker$$convertMapStatuses$2.apply(MapOutputTracker.scala:691)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:733)
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:732)
+	at org.apache.spark.MapOutputTracker$.org$apache$spark$MapOutputTracker$$convertMapStatuses(MapOutputTracker.scala:691)
+	at org.apache.spark.MapOutputTracker.getMapSizesByExecutorId(MapOutputTracker.scala:145)
+	at org.apache.spark.shuffle.BlockStoreShuffleReader.read(BlockStoreShuffleReader.scala:49)
+	at org.apache.spark.rdd.ShuffledRDD.compute(ShuffledRDD.scala:109)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+)
