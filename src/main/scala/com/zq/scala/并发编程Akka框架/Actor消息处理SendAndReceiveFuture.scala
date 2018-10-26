@@ -1,10 +1,10 @@
 package com.zq.scala.并发编程Akka框架
 
-import akka.actor.{Actor, ActorSystem, Props}
+import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import akka.event.Logging
 import akka.util.Timeout
-import scala.concurrent.ExecutionContext.Implicits.global
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.concurrent.duration._
 
@@ -13,9 +13,9 @@ import scala.concurrent.duration._
   */
 object Actor消息处理SendAndReceiveFuture extends App {
 
-  case class BasicInfo(id: Int, val name: String, age: Int)
+  case class BasicInfo(id: Int, name: String, age: Int)
 
-  case class InterestInfo(id: Int, val interest: String)
+  case class InterestInfo(id: Int, interest: String)
 
   case class Person(basicInfo: BasicInfo, interestInfo: InterestInfo)
 
@@ -28,7 +28,7 @@ object Actor消息处理SendAndReceiveFuture extends App {
     override def receive: Receive = {
       case id: Int => log.info(s"id = $id")
         // final def sender(): ActorRef = context.sender()
-        sender ! new BasicInfo(id, "Join", 19)
+        sender !  BasicInfo(id, "Join", 19)
       case _ => log.info("Received unknown message")
     }
   }
@@ -38,7 +38,7 @@ object Actor消息处理SendAndReceiveFuture extends App {
 
     override def receive: Receive = {
       case id: Int => log.info(s"id = $id")
-        sender ! new InterestInfo(id, "篮球")
+        sender !  InterestInfo(id, "篮球")
       case _ => log.info("Receive unknown message")
     }
   }
@@ -54,11 +54,11 @@ object Actor消息处理SendAndReceiveFuture extends App {
 
   class CombineActor extends Actor {
     // import scala.concurrent.duration._
-    implicit val timeout = Timeout(5 seconds)
+    implicit val timeout: Timeout = Timeout(5 seconds)
 
-    val basicInfoActor = context.actorOf(Props[BasicInfoActor], "BasicInfoActor")
-    val interestInfoActor = context actorOf(Props[InterestInfoActor], "InterestInfoActor")
-    val personActor = context actorOf(Props[PersonActor], "PersonActor")
+    val basicInfoActor: ActorRef = context.actorOf(Props[BasicInfoActor], "BasicInfoActor")
+    val interestInfoActor: ActorRef = context actorOf(Props[InterestInfoActor], "InterestInfoActor")
+    val personActor: ActorRef = context actorOf(Props[PersonActor], "PersonActor")
 
     import akka.pattern.ask
     import akka.pattern.pipe
